@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad12_9" orientation="portrait">
+    <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,22 +9,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start Up View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="StartUpViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome to iEye" textAlignment="center" minimumFontSize="70" translatesAutoresizingMaskIntoConstraints="NO" id="dNz-nS-WK5">
+                                <rect key="frame" x="430" y="190" width="506" height="84"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="A better way to test for Aniseikonia" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQW-U1-sxb">
+                                <rect key="frame" x="533.5" y="305" width="300" height="23"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oQW-U1-sxb" firstAttribute="top" secondItem="dNz-nS-WK5" secondAttribute="bottom" constant="31" id="1ui-FP-SuB"/>
+                            <constraint firstItem="dNz-nS-WK5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="170" id="9BY-lX-2fh"/>
+                            <constraint firstItem="dNz-nS-WK5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G3f-sm-Kxp"/>
+                            <constraint firstItem="oQW-U1-sxb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oYp-cp-aUi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="_descriptionLabel" destination="oQW-U1-sxb" id="7Hy-56-0RH"/>
+                        <outlet property="_titleLabel" destination="dNz-nS-WK5" id="75g-kS-HUV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.48169838945827" y="138.8671875"/>
         </scene>
     </scenes>
 </document>
