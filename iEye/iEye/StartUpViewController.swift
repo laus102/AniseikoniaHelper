@@ -17,15 +17,13 @@ class StartUpViewController: UIViewController {
       super.viewDidLoad()
       _descriptionLabel.alpha = 0
       UIView.animate(withDuration: 2.0) {
-         self._descriptionLabel.alpha = 1
+        self._descriptionLabel.alpha = 1
       }
    }
 
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      
    }
-
-
+    
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -50,6 +50,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.48169838945827" y="138.8671875"/>
+        </scene>
+        <!--Left Test View Controller-->
+        <scene sceneID="XHI-ND-sjY">
+            <objects>
+                <viewController id="1bA-WM-zfr" customClass="LeftTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YIX-tY-Lon"/>
+                        <viewControllerLayoutGuide type="bottom" id="bfk-fj-wcJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TwO-cS-fBg">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lIZ-gU-ftI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755" y="-506"/>
+        </scene>
+        <!--Test Select View Controller-->
+        <scene sceneID="7JU-7J-teA">
+            <objects>
+                <viewController id="21Y-HV-sPM" customClass="TestSelectViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ljc-WY-Xau"/>
+                        <viewControllerLayoutGuide type="bottom" id="aqW-P8-ozV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T2x-im-Adn">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-k3-rIh" customClass="PillButton" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="657" y="433" width="52" height="48"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
+                                <state key="normal" title="Vertical">
+                                    <color key="titleColor" red="0.78614799222797926" green="0.12744692942053995" blue="0.118190950353908" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="verticalTestButtonPressed:" destination="21Y-HV-sPM" eventType="touchUpInside" id="IoB-Cg-CMx"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Select an Orientation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YxN-KX-2T6">
+                                <rect key="frame" x="376" y="190" width="615" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGN-N1-hNb" customClass="PillButton" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="648" y="581" width="71" height="30"/>
+                                <state key="normal" title="Horizontal">
+                                    <color key="titleColor" red="0.78614799219999998" green="0.12744692939999999" blue="0.11819095039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="horizontalTestButtonPressed:" destination="21Y-HV-sPM" eventType="touchUpInside" id="g8G-42-jHX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fdn-k3-rIh" firstAttribute="centerX" secondItem="T2x-im-Adn" secondAttribute="centerX" id="Lh3-ql-PK8"/>
+                            <constraint firstItem="vGN-N1-hNb" firstAttribute="centerX" secondItem="T2x-im-Adn" secondAttribute="centerX" id="WYe-Fo-Bvy"/>
+                            <constraint firstItem="aqW-P8-ozV" firstAttribute="top" secondItem="vGN-N1-hNb" secondAttribute="bottom" constant="413" id="mrq-PN-W7k"/>
+                            <constraint firstItem="fdn-k3-rIh" firstAttribute="top" secondItem="ljc-WY-Xau" secondAttribute="bottom" constant="413" id="pdN-nC-RM5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="horizontalTestButton" destination="vGN-N1-hNb" id="UO9-bc-S4J"/>
+                        <outlet property="titleLabel" destination="YxN-KX-2T6" id="8lv-7D-ps1"/>
+                        <outlet property="verticalTestButton" destination="fdn-k3-rIh" id="I6O-OR-QYP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0fy-Ia-DLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757.68667642752553" y="138.8671875"/>
+        </scene>
+        <!--Right Test View Controller-->
+        <scene sceneID="FiZ-pk-CKA">
+            <objects>
+                <viewController id="kZZ-Iw-6sX" customClass="RightTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x5d-H4-qni"/>
+                        <viewControllerLayoutGuide type="bottom" id="XtI-WG-Qhy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nqp-Is-q4t" customClass="Right">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tRK-No-u1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="775"/>
         </scene>
     </scenes>
 </document>

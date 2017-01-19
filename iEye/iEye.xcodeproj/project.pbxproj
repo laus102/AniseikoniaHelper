@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D7045991E31662B00591E20 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045981E31662B00591E20 /* PillButton.swift */; };
 		C6CC1CB41E3019AD00F4CDD1 /* TestSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB31E3019AD00F4CDD1 /* TestSelectViewController.swift */; };
 		C6CC1CB61E301BBA00F4CDD1 /* LeftTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB51E301BBA00F4CDD1 /* LeftTestViewController.swift */; };
 		C6CC1CB81E301BC500F4CDD1 /* RightTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB71E301BC500F4CDD1 /* RightTestViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D7045981E31662B00591E20 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		C6CC1CB31E3019AD00F4CDD1 /* TestSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSelectViewController.swift; sourceTree = "<group>"; };
 		C6CC1CB51E301BBA00F4CDD1 /* LeftTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTestViewController.swift; sourceTree = "<group>"; };
 		C6CC1CB71E301BC500F4CDD1 /* RightTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightTestViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				C6CD39E21E2EC80E004BC44B /* Assets.xcassets */,
 				C6CD39E41E2EC80E004BC44B /* LaunchScreen.storyboard */,
 				C6CD39E71E2EC80E004BC44B /* Info.plist */,
+				4D7045981E31662B00591E20 /* PillButton.swift */,
 			);
 			path = iEye;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7045991E31662B00591E20 /* PillButton.swift in Sources */,
 				C6CC1CB41E3019AD00F4CDD1 /* TestSelectViewController.swift in Sources */,
 				C6CC1CB61E301BBA00F4CDD1 /* LeftTestViewController.swift in Sources */,
 				C6CC1CB81E301BC500F4CDD1 /* RightTestViewController.swift in Sources */,

@@ -10,12 +10,35 @@ import UIKit
 
 class TestSelectViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var verticalTestButton: PillButton!
+    @IBOutlet weak var horizontalTestButton: PillButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        verticalTestButton.layer.borderColor = UIColor.black.cgColor
+        verticalTestButton.layer.borderWidth = 2.0
+        verticalTestButton.contentEdgeInsets.top = 15.0
+        verticalTestButton.contentEdgeInsets.bottom = 15.0
+        verticalTestButton.contentEdgeInsets.left = 15.0
+        verticalTestButton.contentEdgeInsets.right = 15.0
+        
+        horizontalTestButton.layer.borderColor = UIColor.black.cgColor
+        horizontalTestButton.layer.borderWidth = 2.0
+        horizontalTestButton.contentEdgeInsets.top = 15.0
+        horizontalTestButton.contentEdgeInsets.bottom = 15.0
+        horizontalTestButton.contentEdgeInsets.left = 15.0
+        horizontalTestButton.contentEdgeInsets.right = 15.0
+    
     }
-
+    
+    @IBAction func verticalTestButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func horizontalTestButtonPressed(_ sender: Any) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
