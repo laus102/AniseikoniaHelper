@@ -34,25 +34,18 @@ class TestSelectViewController: UIViewController {
     }
     
     @IBAction func verticalTestButtonPressed(_ sender: Any) {
+        let verticalTestVC = storyboard!.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
+        present(verticalTestVC, animated: true, completion: nil)
     }
     
     @IBAction func horizontalTestButtonPressed(_ sender: Any) {
+        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
+        present(horizontalTestVC, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
