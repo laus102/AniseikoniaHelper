@@ -17,14 +17,14 @@ class TestSelectViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        verticalTestButton.layer.borderColor = UIColor.black.cgColor
+        verticalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         verticalTestButton.layer.borderWidth = 1.0
         verticalTestButton.contentEdgeInsets.top = 15.0
         verticalTestButton.contentEdgeInsets.bottom = 15.0
         verticalTestButton.contentEdgeInsets.left = 15.0
         verticalTestButton.contentEdgeInsets.right = 15.0
         
-        horizontalTestButton.layer.borderColor = UIColor.black.cgColor
+        horizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         horizontalTestButton.layer.borderWidth = 1.0
         horizontalTestButton.contentEdgeInsets.top = 15.0
         horizontalTestButton.contentEdgeInsets.bottom = 15.0

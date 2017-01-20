@@ -36,6 +36,7 @@ class VerticalTestViewController: UIViewController {
         
         orientationToggleSwitch.setOn(true, animated: true)
         orientationToggleSwitch.onTintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 1.0)
+        orientationToggleSwitch.tintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 0.1)
         orientationReadOutLabel.textColor = UIColor.black
         orientationReadOutLabel.text = "Right"
         
