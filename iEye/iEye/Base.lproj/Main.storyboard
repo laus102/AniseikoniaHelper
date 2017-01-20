@@ -21,40 +21,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Welcome to iEye" textAlignment="center" minimumFontSize="70" translatesAutoresizingMaskIntoConstraints="NO" id="dNz-nS-WK5">
-                                <rect key="frame" x="430" y="190" width="506" height="84"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iEye" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoE-Vv-vej">
+                                <rect key="frame" x="432" y="190" width="502" height="84"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="A better way to test for Aniseikonia" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQW-U1-sxb">
-                                <rect key="frame" x="533.5" y="305" width="300" height="23"/>
                                 <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A better way to test for Aniseikonia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFx-6i-a43">
+                                <rect key="frame" x="535" y="305" width="296" height="23"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oQW-U1-sxb" firstAttribute="top" secondItem="dNz-nS-WK5" secondAttribute="bottom" constant="31" id="1ui-FP-SuB"/>
-                            <constraint firstItem="dNz-nS-WK5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="170" id="9BY-lX-2fh"/>
-                            <constraint firstItem="dNz-nS-WK5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G3f-sm-Kxp"/>
-                            <constraint firstItem="oQW-U1-sxb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oYp-cp-aUi"/>
+                            <constraint firstItem="uoE-Vv-vej" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6AK-1p-gE2"/>
+                            <constraint firstItem="kFx-6i-a43" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IAF-aR-CWK"/>
+                            <constraint firstItem="kFx-6i-a43" firstAttribute="top" secondItem="uoE-Vv-vej" secondAttribute="bottom" constant="31" id="Kxv-hj-FOw"/>
+                            <constraint firstItem="uoE-Vv-vej" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="170" id="q6d-Qb-Sw3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="_descriptionLabel" destination="oQW-U1-sxb" id="7Hy-56-0RH"/>
-                        <outlet property="_titleLabel" destination="dNz-nS-WK5" id="75g-kS-HUV"/>
+                        <outlet property="_descriptionLabel" destination="kFx-6i-a43" id="LGn-Pb-FLw"/>
+                        <outlet property="_titleLabel" destination="uoE-Vv-vej" id="B7I-di-1Q8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.48169838945827" y="138.8671875"/>
+            <point key="canvasLocation" x="-641" y="138"/>
         </scene>
         <!--Left Test View Controller-->
         <scene sceneID="XHI-ND-sjY">
             <objects>
-                <viewController id="1bA-WM-zfr" customClass="LeftTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftTestViewController" id="1bA-WM-zfr" customClass="LeftTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YIX-tY-Lon"/>
                         <viewControllerLayoutGuide type="bottom" id="bfk-fj-wcJ"/>
@@ -67,12 +67,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIZ-gU-ftI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755" y="-506"/>
+            <point key="canvasLocation" x="757" y="-947"/>
         </scene>
         <!--Test Select View Controller-->
         <scene sceneID="7JU-7J-teA">
             <objects>
-                <viewController id="21Y-HV-sPM" customClass="TestSelectViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TestSelectViewController" id="21Y-HV-sPM" customClass="TestSelectViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ljc-WY-Xau"/>
                         <viewControllerLayoutGuide type="bottom" id="aqW-P8-ozV"/>
@@ -130,7 +130,7 @@
         <!--Right Test View Controller-->
         <scene sceneID="FiZ-pk-CKA">
             <objects>
-                <viewController id="kZZ-Iw-6sX" customClass="RightTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RightTestViewController" id="kZZ-Iw-6sX" customClass="RightTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5d-H4-qni"/>
                         <viewControllerLayoutGuide type="bottom" id="XtI-WG-Qhy"/>
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRK-No-u1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="775"/>
+            <point key="canvasLocation" x="759" y="1220"/>
         </scene>
     </scenes>
 </document>
