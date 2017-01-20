@@ -10,7 +10,7 @@ import UIKit
 
 class StartToTestAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    let duration = 1.0
+    let duration = 3.0
     var presenting = true
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval { return duration }
@@ -37,7 +37,7 @@ class StartToTestAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toView)
         containerView.bringSubview(toFront: selectTestView)
         
-        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.4,
+        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.73,
                        initialSpringVelocity: 0.0, options: [],
             animations: {
                 selectTestView.transform = self.presenting ? CGAffineTransform.identity : scaleTransform

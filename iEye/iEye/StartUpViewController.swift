@@ -25,12 +25,12 @@ class StartUpViewController: UIViewController {
         _descriptionLabel.text = "A better way to diagnose Aniseikonia"
         
         _descriptionLabel.alpha = 0
-        UIView.animate(withDuration: 2.0) {
+        UIView.animate(withDuration: 2.5) {
             self._descriptionLabel.alpha = 1
         }
         let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
         testSelectVC.transitioningDelegate = self
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
             self.present(testSelectVC, animated: true, completion: nil)
         })
     }
