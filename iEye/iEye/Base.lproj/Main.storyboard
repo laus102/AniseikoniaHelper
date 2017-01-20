@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1bA-WM-zfr">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,12 +49,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-641" y="138"/>
+            <point key="canvasLocation" x="108" y="139"/>
         </scene>
-        <!--Left Test View Controller-->
+        <!--Vertical Test View Controller-->
         <scene sceneID="XHI-ND-sjY">
             <objects>
-                <viewController storyboardIdentifier="LeftTestViewController" id="1bA-WM-zfr" customClass="LeftTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerticalTestViewController" id="1bA-WM-zfr" customClass="VerticalTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YIX-tY-Lon"/>
                         <viewControllerLayoutGuide type="bottom" id="bfk-fj-wcJ"/>
@@ -62,12 +62,75 @@
                     <view key="view" contentMode="scaleToFill" id="TwO-cS-fBg">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="VwL-5L-X6i">
+                                <rect key="frame" x="1095" y="676" width="118" height="31"/>
+                                <color key="tintColor" red="0.78614799219999998" green="0.12744692939999999" blue="0.11819095039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-B5-Jz5" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="1122" y="489" width="65" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OMz-a1-GHH">
+                                <rect key="frame" x="1130" y="898" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOg-lx-GQj">
+                                <rect key="frame" x="1133" y="945" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Wp-kl-Tq7" customClass="CircleButton" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="144" y="850" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.78614799219999998" green="0.12744692939999999" blue="0.11819095039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-UO-mOv" customClass="PillButton" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="100" y="90" width="104" height="30"/>
+                                <state key="normal" title="Horizontal Test">
+                                    <color key="titleColor" red="0.78431372549019607" green="0.12549019607843137" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bfk-fj-wcJ" firstAttribute="top" secondItem="tOg-lx-GQj" secondAttribute="bottom" constant="58" id="4a9-Ei-C2a"/>
+                            <constraint firstItem="tOg-lx-GQj" firstAttribute="leading" secondItem="TwO-cS-fBg" secondAttribute="leading" constant="1133" id="71G-db-jsS"/>
+                            <constraint firstAttribute="trailing" secondItem="OMz-a1-GHH" secondAttribute="trailing" constant="187" id="7qh-G9-BIG"/>
+                            <constraint firstItem="bfk-fj-wcJ" firstAttribute="top" secondItem="VwL-5L-X6i" secondAttribute="bottom" constant="318" id="Bws-QZ-8EK"/>
+                            <constraint firstItem="WrO-UO-mOv" firstAttribute="leading" secondItem="TwO-cS-fBg" secondAttribute="leading" constant="100" id="JbS-k4-k2I"/>
+                            <constraint firstAttribute="trailing" secondItem="RHU-B5-Jz5" secondAttribute="trailing" constant="179" id="Jjo-UZ-clY"/>
+                            <constraint firstItem="OMz-a1-GHH" firstAttribute="top" secondItem="YIX-tY-Lon" secondAttribute="bottom" constant="878" id="KJU-VC-Dgw"/>
+                            <constraint firstItem="bfk-fj-wcJ" firstAttribute="top" secondItem="7Wp-kl-Tq7" secondAttribute="bottom" constant="144" id="L1J-Du-CWh"/>
+                            <constraint firstItem="RHU-B5-Jz5" firstAttribute="top" secondItem="YIX-tY-Lon" secondAttribute="bottom" constant="469" id="MX7-AT-TUk"/>
+                            <constraint firstItem="bfk-fj-wcJ" firstAttribute="top" secondItem="OMz-a1-GHH" secondAttribute="bottom" constant="95" id="XoT-TO-DG0"/>
+                            <constraint firstAttribute="trailing" secondItem="VwL-5L-X6i" secondAttribute="trailing" constant="155" id="Yu8-AM-cre"/>
+                            <constraint firstItem="VwL-5L-X6i" firstAttribute="leading" secondItem="TwO-cS-fBg" secondAttribute="leading" constant="1097" id="c0U-eF-1TR"/>
+                            <constraint firstItem="RHU-B5-Jz5" firstAttribute="leading" secondItem="TwO-cS-fBg" secondAttribute="leading" constant="1122" id="dK3-zY-wEK"/>
+                            <constraint firstItem="WrO-UO-mOv" firstAttribute="top" secondItem="YIX-tY-Lon" secondAttribute="bottom" constant="70" id="iGL-tB-idd"/>
+                            <constraint firstItem="VwL-5L-X6i" firstAttribute="top" secondItem="YIX-tY-Lon" secondAttribute="bottom" constant="656" id="jHA-0a-28p"/>
+                            <constraint firstAttribute="trailing" secondItem="tOg-lx-GQj" secondAttribute="trailing" constant="191" id="kBa-fC-1fA"/>
+                            <constraint firstItem="VwL-5L-X6i" firstAttribute="top" secondItem="RHU-B5-Jz5" secondAttribute="bottom" constant="140" id="rs4-yL-bta"/>
+                            <constraint firstItem="OMz-a1-GHH" firstAttribute="leading" secondItem="TwO-cS-fBg" secondAttribute="leading" constant="1130" id="u4y-vm-iv3"/>
+                            <constraint firstItem="7Wp-kl-Tq7" firstAttribute="leading" secondItem="TwO-cS-fBg" secondAttribute="leading" constant="144" id="uBR-HT-DIa"/>
+                            <constraint firstItem="tOg-lx-GQj" firstAttribute="top" secondItem="OMz-a1-GHH" secondAttribute="bottom" constant="16" id="viV-aO-c8w"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="orientationReadOutLabel" destination="tOg-lx-GQj" id="6o5-EQ-Di3"/>
+                        <outlet property="rightLeftToggle" destination="OMz-a1-GHH" id="fRX-Hb-jz9"/>
+                        <outlet property="scaleAdjustSlider" destination="VwL-5L-X6i" id="zGX-Jh-Grs"/>
+                        <outlet property="scaleReadOutLabel" destination="RHU-B5-Jz5" id="d5G-IK-abw"/>
+                        <outlet property="testDoneButton" destination="7Wp-kl-Tq7" id="0dD-cK-use"/>
+                        <outlet property="toHorizontalTestButton" destination="WrO-UO-mOv" id="0eq-Dw-dTV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIZ-gU-ftI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="-947"/>
+            <point key="canvasLocation" x="757.68667642752553" y="-527.34375"/>
         </scene>
         <!--Test Select View Controller-->
         <scene sceneID="7JU-7J-teA">
@@ -86,7 +149,7 @@
                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
                                 <state key="normal" title="Vertical">
-                                    <color key="titleColor" red="0.78614799222797926" green="0.12744692942053995" blue="0.118190950353908" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.78431372549019607" green="0.12549019607843137" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="verticalTestButtonPressed:" destination="21Y-HV-sPM" eventType="touchUpInside" id="IoB-Cg-CMx"/>
@@ -127,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="757.68667642752553" y="138.8671875"/>
         </scene>
-        <!--Right Test View Controller-->
+        <!--Horizontal Test View Controller-->
         <scene sceneID="FiZ-pk-CKA">
             <objects>
-                <viewController storyboardIdentifier="RightTestViewController" id="kZZ-Iw-6sX" customClass="RightTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HorizontalTestViewController" id="kZZ-Iw-6sX" customClass="HorizontalTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5d-H4-qni"/>
                         <viewControllerLayoutGuide type="bottom" id="XtI-WG-Qhy"/>
@@ -138,12 +201,75 @@
                     <view key="view" contentMode="scaleToFill" id="Nqp-Is-q4t" customClass="Right">
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kGS-xA-Yu0">
+                                <rect key="frame" x="1095" y="685" width="118" height="22"/>
+                                <color key="tintColor" red="0.78431372549019607" green="0.12549019607843137" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BU6-eL-cbH">
+                                <rect key="frame" x="1130" y="898" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lw-k6-cNe">
+                                <rect key="frame" x="1133" y="945" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlP-Gq-5vK" customClass="CircleButton" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="144" y="850" width="37" height="30"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.78614799219999998" green="0.12744692939999999" blue="0.11819095039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-DM-2JO" customClass="PillButton" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="100" y="90" width="86" height="30"/>
+                                <state key="normal" title="Vertical Test">
+                                    <color key="titleColor" red="0.78614799219999998" green="0.12744692939999999" blue="0.11819095039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="140" placeholderIntrinsicHeight="56" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8s-TL-cQc" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                                <rect key="frame" x="1081" y="489" width="146" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GlP-Gq-5vK" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="144" id="1ua-MS-Rus"/>
+                            <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="Z8s-TL-cQc" secondAttribute="bottom" constant="485" id="DI0-x3-yDk"/>
+                            <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="3lw-k6-cNe" secondAttribute="bottom" constant="58" id="DlB-Pi-die"/>
+                            <constraint firstItem="BU6-eL-cbH" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="1130" id="EiN-Vo-NJi"/>
+                            <constraint firstAttribute="trailing" secondItem="kGS-xA-Yu0" secondAttribute="trailing" constant="155" id="HNP-C7-crx"/>
+                            <constraint firstItem="3lw-k6-cNe" firstAttribute="top" secondItem="BU6-eL-cbH" secondAttribute="bottom" constant="16" id="SDP-kK-IDs"/>
+                            <constraint firstItem="Z8s-TL-cQc" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="1081" id="b4L-Bt-3Lg"/>
+                            <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="GlP-Gq-5vK" secondAttribute="bottom" constant="144" id="cGJ-8h-nW3"/>
+                            <constraint firstAttribute="trailing" secondItem="Z8s-TL-cQc" secondAttribute="trailing" constant="139" id="d1x-Bw-eFN"/>
+                            <constraint firstItem="tW7-DM-2JO" firstAttribute="top" secondItem="x5d-H4-qni" secondAttribute="bottom" constant="70" id="dZz-s8-GYW"/>
+                            <constraint firstAttribute="trailing" secondItem="BU6-eL-cbH" secondAttribute="trailing" constant="187" id="hDa-Bu-ta2"/>
+                            <constraint firstItem="3lw-k6-cNe" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="1133" id="ilN-k3-Yrd"/>
+                            <constraint firstItem="Z8s-TL-cQc" firstAttribute="top" secondItem="x5d-H4-qni" secondAttribute="bottom" constant="469" id="mgL-2T-Wep"/>
+                            <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="kGS-xA-Yu0" secondAttribute="bottom" constant="318" id="nD5-fI-Vz6"/>
+                            <constraint firstItem="kGS-xA-Yu0" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="1097" id="p2V-F4-6xu"/>
+                            <constraint firstItem="tW7-DM-2JO" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="100" id="qq2-2m-Bf4"/>
+                            <constraint firstAttribute="trailing" secondItem="3lw-k6-cNe" secondAttribute="trailing" constant="191" id="sca-n0-NlB"/>
+                            <constraint firstItem="kGS-xA-Yu0" firstAttribute="top" secondItem="x5d-H4-qni" secondAttribute="bottom" constant="665" id="xNj-aM-pec"/>
+                            <constraint firstItem="BU6-eL-cbH" firstAttribute="top" secondItem="x5d-H4-qni" secondAttribute="bottom" constant="878" id="xsG-85-4x6"/>
+                            <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="BU6-eL-cbH" secondAttribute="bottom" constant="95" id="ybb-iZ-auh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="orientationReadOutLabel" destination="3lw-k6-cNe" id="ARP-5c-aJw"/>
+                        <outlet property="orientationToggleSwitch" destination="BU6-eL-cbH" id="aGn-cK-a2L"/>
+                        <outlet property="scaleAdjustSlider" destination="kGS-xA-Yu0" id="S09-y1-c57"/>
+                        <outlet property="scaleReadOutLabel" destination="Z8s-TL-cQc" id="fZJ-P3-zqa"/>
+                        <outlet property="testDoneButton" destination="GlP-Gq-5vK" id="rZL-C6-YDs"/>
+                        <outlet property="verticalTestButton" destination="tW7-DM-2JO" id="9RY-hv-abO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRK-No-u1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="1220"/>
+            <point key="canvasLocation" x="758" y="783"/>
         </scene>
     </scenes>
 </document>

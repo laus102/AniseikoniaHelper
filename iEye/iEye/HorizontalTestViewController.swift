@@ -1,5 +1,5 @@
 //
-//  LeftTestViewController.swift
+//  HorizontalTestViewController.swift
 //  iEye
 //
 //  Created by Brendan Lau on 1/18/17.
@@ -8,10 +8,24 @@
 
 import UIKit
 
-class LeftTestViewController: UIViewController {
+class HorizontalTestViewController: UIViewController {
 
+    
+    @IBOutlet weak var scaleReadOutLabel: PillLabel!
+    @IBOutlet weak var scaleAdjustSlider: UISlider!
+    @IBOutlet weak var orientationReadOutLabel: UILabel!
+    @IBOutlet weak var orientationToggleSwitch: UISwitch!
+    
+    @IBOutlet weak var verticalTestButton: PillButton!
+    @IBOutlet weak var testDoneButton: CircleButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scaleReadOutLabel.text = "1.0"
+        scaleAdjustSlider.maximumValue = 1.0
+        scaleAdjustSlider.minimumValue = 0.0
+        
 
         // Do any additional setup after loading the view.
     }

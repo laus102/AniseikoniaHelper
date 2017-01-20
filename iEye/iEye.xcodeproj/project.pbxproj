@@ -10,9 +10,11 @@
 		4D7045991E31662B00591E20 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045981E31662B00591E20 /* PillButton.swift */; };
 		4D70459B1E316F6500591E20 /* StartToTestAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D70459A1E316F6500591E20 /* StartToTestAnimator.swift */; };
 		4D7045A11E31755200591E20 /* StartUpViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */; };
+		4D7045A31E31C1AE00591E20 /* PillLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045A21E31C1AE00591E20 /* PillLabel.swift */; };
+		4DFF25751E31CAA600E13146 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFF25741E31CAA600E13146 /* CircleButton.swift */; };
 		C6CC1CB41E3019AD00F4CDD1 /* TestSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB31E3019AD00F4CDD1 /* TestSelectViewController.swift */; };
-		C6CC1CB61E301BBA00F4CDD1 /* LeftTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB51E301BBA00F4CDD1 /* LeftTestViewController.swift */; };
-		C6CC1CB81E301BC500F4CDD1 /* RightTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB71E301BC500F4CDD1 /* RightTestViewController.swift */; };
+		C6CC1CB61E301BBA00F4CDD1 /* VerticalTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB51E301BBA00F4CDD1 /* VerticalTestViewController.swift */; };
+		C6CC1CB81E301BC500F4CDD1 /* HorizontalTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CC1CB71E301BC500F4CDD1 /* HorizontalTestViewController.swift */; };
 		C6CD39DC1E2EC80E004BC44B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD39DB1E2EC80E004BC44B /* AppDelegate.swift */; };
 		C6CD39DE1E2EC80E004BC44B /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD39DD1E2EC80E004BC44B /* StartUpViewController.swift */; };
 		C6CD39E11E2EC80E004BC44B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6CD39DF1E2EC80E004BC44B /* Main.storyboard */; };
@@ -24,9 +26,11 @@
 		4D7045981E31662B00591E20 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		4D70459A1E316F6500591E20 /* StartToTestAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartToTestAnimator.swift; sourceTree = "<group>"; };
 		4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewControllerExtensions.swift; sourceTree = "<group>"; };
+		4D7045A21E31C1AE00591E20 /* PillLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillLabel.swift; sourceTree = "<group>"; };
+		4DFF25741E31CAA600E13146 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		C6CC1CB31E3019AD00F4CDD1 /* TestSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSelectViewController.swift; sourceTree = "<group>"; };
-		C6CC1CB51E301BBA00F4CDD1 /* LeftTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftTestViewController.swift; sourceTree = "<group>"; };
-		C6CC1CB71E301BC500F4CDD1 /* RightTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightTestViewController.swift; sourceTree = "<group>"; };
+		C6CC1CB51E301BBA00F4CDD1 /* VerticalTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTestViewController.swift; sourceTree = "<group>"; };
+		C6CC1CB71E301BC500F4CDD1 /* HorizontalTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalTestViewController.swift; sourceTree = "<group>"; };
 		C6CD39D81E2EC80E004BC44B /* iEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6CD39DB1E2EC80E004BC44B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6CD39DD1E2EC80E004BC44B /* StartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 			isa = PBXGroup;
 			children = (
 				4D7045981E31662B00591E20 /* PillButton.swift */,
+				4DFF25741E31CAA600E13146 /* CircleButton.swift */,
+				4D7045A21E31C1AE00591E20 /* PillLabel.swift */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -69,8 +75,8 @@
 				C6CD39DD1E2EC80E004BC44B /* StartUpViewController.swift */,
 				4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */,
 				C6CC1CB31E3019AD00F4CDD1 /* TestSelectViewController.swift */,
-				C6CC1CB71E301BC500F4CDD1 /* RightTestViewController.swift */,
-				C6CC1CB51E301BBA00F4CDD1 /* LeftTestViewController.swift */,
+				C6CC1CB71E301BC500F4CDD1 /* HorizontalTestViewController.swift */,
+				C6CC1CB51E301BBA00F4CDD1 /* VerticalTestViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -182,9 +188,11 @@
 				4D7045991E31662B00591E20 /* PillButton.swift in Sources */,
 				C6CC1CB41E3019AD00F4CDD1 /* TestSelectViewController.swift in Sources */,
 				4D7045A11E31755200591E20 /* StartUpViewControllerExtensions.swift in Sources */,
-				C6CC1CB61E301BBA00F4CDD1 /* LeftTestViewController.swift in Sources */,
-				C6CC1CB81E301BC500F4CDD1 /* RightTestViewController.swift in Sources */,
+				C6CC1CB61E301BBA00F4CDD1 /* VerticalTestViewController.swift in Sources */,
+				C6CC1CB81E301BC500F4CDD1 /* HorizontalTestViewController.swift in Sources */,
+				4DFF25751E31CAA600E13146 /* CircleButton.swift in Sources */,
 				C6CD39DE1E2EC80E004BC44B /* StartUpViewController.swift in Sources */,
+				4D7045A31E31C1AE00591E20 /* PillLabel.swift in Sources */,
 				C6CD39DC1E2EC80E004BC44B /* AppDelegate.swift in Sources */,
 				4D70459B1E316F6500591E20 /* StartToTestAnimator.swift in Sources */,
 			);
