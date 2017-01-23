@@ -18,12 +18,12 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var testDoneButton: CircleButton!
     @IBOutlet weak var toHorizontalTestButton: PillButton!
     
-    @IBOutlet weak var diagramImage: UIImageView!
-    
+    @IBOutlet weak var rightDiagramComponentView: DiagramComponentView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diagramImage.transform = CGAffineTransform(scaleX: 0.70, y: 0.70)
+//        diagramImage.transform = CGAffineTransform(scaleX: 0.70, y: 0.70)
         scaleReadOutLabel.text = "1.0"
         scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
         scaleReadOutLabel.layer.borderWidth = 1.5

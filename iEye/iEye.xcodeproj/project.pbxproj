@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D5E2D7F1E367DA600247550 /* DiagramComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E2D7E1E367DA600247550 /* DiagramComponentView.swift */; };
+		4D5E2D811E36823500247550 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E2D801E36823500247550 /* UIExtensions.swift */; };
 		4D7045991E31662B00591E20 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045981E31662B00591E20 /* PillButton.swift */; };
 		4D70459B1E316F6500591E20 /* StartToTestAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D70459A1E316F6500591E20 /* StartToTestAnimator.swift */; };
 		4D7045A11E31755200591E20 /* StartUpViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D5E2D7E1E367DA600247550 /* DiagramComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagramComponentView.swift; sourceTree = "<group>"; };
+		4D5E2D801E36823500247550 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		4D7045981E31662B00591E20 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		4D70459A1E316F6500591E20 /* StartToTestAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartToTestAnimator.swift; sourceTree = "<group>"; };
 		4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -62,9 +66,11 @@
 		4D70459D1E316F7E00591E20 /* UI Elements */ = {
 			isa = PBXGroup;
 			children = (
+				4D5E2D801E36823500247550 /* UIExtensions.swift */,
 				4D7045981E31662B00591E20 /* PillButton.swift */,
 				4DFF25741E31CAA600E13146 /* CircleButton.swift */,
 				4D7045A21E31C1AE00591E20 /* PillLabel.swift */,
+				4D5E2D7E1E367DA600247550 /* DiagramComponentView.swift */,
 			);
 			name = "UI Elements";
 			sourceTree = "<group>";
@@ -187,6 +193,8 @@
 			files = (
 				4D7045991E31662B00591E20 /* PillButton.swift in Sources */,
 				C6CC1CB41E3019AD00F4CDD1 /* TestSelectViewController.swift in Sources */,
+				4D5E2D7F1E367DA600247550 /* DiagramComponentView.swift in Sources */,
+				4D5E2D811E36823500247550 /* UIExtensions.swift in Sources */,
 				4D7045A11E31755200591E20 /* StartUpViewControllerExtensions.swift in Sources */,
 				C6CC1CB61E301BBA00F4CDD1 /* VerticalTestViewController.swift in Sources */,
 				C6CC1CB81E301BC500F4CDD1 /* HorizontalTestViewController.swift in Sources */,
