@@ -18,6 +18,7 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var testDoneButton: CircleButton!
     @IBOutlet weak var toHorizontalTestButton: PillButton!
     
+    @IBOutlet weak var leftDiagramComponentView: DiagramComponentView!
     @IBOutlet weak var rightDiagramComponentView: DiagramComponentView!
 
     override func viewDidLoad() {
