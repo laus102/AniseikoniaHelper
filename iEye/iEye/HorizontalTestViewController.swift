@@ -12,18 +12,24 @@ class HorizontalTestViewController: UIViewController {
     
     @IBOutlet weak var scaleReadOutLabel: PillLabel!
     @IBOutlet weak var scaleAdjustSlider: UISlider!
+    
     @IBOutlet weak var orientationToggleSwitch: UISwitch!
+    var orientationState: HorizontalDiagramDirection = .top
     @IBOutlet weak var orientationReadOutLabel: UILabel!
     
     @IBOutlet weak var testDoneButton: CircleButton!
     @IBOutlet weak var verticalTestButton: PillButton!
     
-    @IBOutlet weak var diagramImage: UIImageView!
+    @IBOutlet weak var topDiagramComponentView: DiagramComponentView!
+    @IBOutlet weak var bottomDiagramComponentView: DiagramComponentView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        diagramImage.transform = CGAffineTransform(scaleX: 0.70, y: 0.70)
+        bottomDiagramComponentView.fillColor = UIColor(r: 134, g: 196, b: 131, a: 1.0)
+        topDiagramComponentView.fillColor = UIColor(r: 217, g: 108, b: 103, a: 1.0)
+        
         scaleReadOutLabel.text = "1.0"
         scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
         scaleReadOutLabel.layer.borderWidth = 1.5
@@ -37,7 +43,7 @@ class HorizontalTestViewController: UIViewController {
         orientationToggleSwitch.setOn(true, animated: true)
         orientationToggleSwitch.onTintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 1.0)
         orientationReadOutLabel.textColor = UIColor.black
-        orientationReadOutLabel.text = "Top"
+        orientationReadOutLabel.text = HorizontalDiagramDirection.top.rawValue
         
         verticalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         verticalTestButton.layer.borderWidth = 1.5
@@ -75,10 +81,16 @@ class HorizontalTestViewController: UIViewController {
     @IBAction func scaleAdjustmentSliderValueChanged(_ sender: UISlider) {
         let roundedValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         scaleReadOutLabel.text = "\(roundedValue)"
+        
+        switch orientationState {
+            case .bottom: bottomDiagramComponentView.adjust(scale: CGFloat(sender.value))
+            case .top: topDiagramComponentView.adjust(scale: CGFloat(sender.value))
+        }
     }
     
     @IBAction func orientationToggleDidSwitch(_ sender: UISwitch) {
-        orientationReadOutLabel.text = orientationReadOutLabel.text == "Top" ? "Bottom" : "Top"
+        orientationReadOutLabel.text = orientationState.next.rawValue
+        orientationState = orientationState.next
     }
 
 }

@@ -12,7 +12,9 @@ class VerticalTestViewController: UIViewController {
     
     @IBOutlet weak var scaleReadOutLabel: PillLabel!
     @IBOutlet weak var scaleAdjustSlider: UISlider!
+    
     @IBOutlet weak var orientationToggleSwitch: UISwitch!
+    var orientationState: VerticalDiagramDirection = .right // declared in UIExtensions.swift
     @IBOutlet weak var orientationReadOutLabel: UILabel!
     
     @IBOutlet weak var testDoneButton: CircleButton!
@@ -24,11 +26,12 @@ class VerticalTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        diagramImage.transform = CGAffineTransform(scaleX: 0.70, y: 0.70)
+        leftDiagramComponentView.fillColor = UIColor(r: 134, g: 196, b: 131, a: 1.0)
+        rightDiagramComponentView.fillColor = UIColor(r: 217, g: 108, b: 103, a: 1.0)
+        
         scaleReadOutLabel.text = "1.0"
         scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
         scaleReadOutLabel.layer.borderWidth = 1.5
-        
         
         scaleAdjustSlider.maximumValue = 1.0
         scaleAdjustSlider.minimumValue = 0.10
@@ -38,8 +41,9 @@ class VerticalTestViewController: UIViewController {
         orientationToggleSwitch.setOn(true, animated: true)
         orientationToggleSwitch.onTintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 1.0)
         orientationToggleSwitch.tintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 0.1)
+        
         orientationReadOutLabel.textColor = UIColor.black
-        orientationReadOutLabel.text = "Right"
+        orientationReadOutLabel.text = VerticalDiagramDirection.right.rawValue
         
         toHorizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         toHorizontalTestButton.layer.borderWidth = 1.5
@@ -77,10 +81,16 @@ class VerticalTestViewController: UIViewController {
     @IBAction func scaleAdjustSliderValueChanged(_ sender: UISlider) {
         let roundedValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         scaleReadOutLabel.text = "\(roundedValue)"
+        
+        switch orientationState {
+            case VerticalDiagramDirection.left:  leftDiagramComponentView.adjust(scale: CGFloat(sender.value))
+            case VerticalDiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value))
+        }
     }
     
     @IBAction func orientationToggleDidSwitch(_ sender: Any) {
-        orientationReadOutLabel.text = orientationReadOutLabel.text == "Right" ? "Left" : "Right"
+        orientationReadOutLabel.text = orientationState.next.rawValue
+        orientationState = orientationState.next
     }
     
 

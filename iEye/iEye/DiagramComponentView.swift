@@ -9,10 +9,22 @@
 import UIKit
 
 class DiagramComponentView: UIView {
-
+    
+    var fillColor: UIColor = UIColor.black {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     override func draw(_ rect: CGRect) {
-        UIColor(r: 217, g: 108, b: 103, a: 1.0).setFill()
+//        let context = UIGraphicsGetCurrentContext()
+//        print(context?.beginPath())
+        fillColor.setFill()
         UIRectFill(rect)
+    }
+    
+    func adjust(scale: CGFloat) ->() {
+        transform = CGAffineTransform(scaleX: scale, y: scale)
     }
  
 }
