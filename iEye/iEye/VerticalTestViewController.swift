@@ -14,7 +14,7 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var scaleAdjustSlider: UISlider!
     
     @IBOutlet weak var orientationToggleSwitch: UISwitch!
-    var orientationState: VerticalDiagramDirection = .right // declared in UIExtensions.swift
+    var orientationState: DiagramDirection = .right // declared in UIExtensions.swift
     @IBOutlet weak var orientationReadOutLabel: UILabel!
     
     @IBOutlet weak var testDoneButton: CircleButton!
@@ -79,8 +79,9 @@ class VerticalTestViewController: UIViewController {
         scaleReadOutLabel.text = "\(roundedValue)"
         
         switch orientationState {
-            case VerticalDiagramDirection.left: leftDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: -1.0)
-            case VerticalDiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
+            case DiagramDirection.left: leftDiagramComponentView.adjust(scale: CGFloat(sender.value), diagramOrientation: orientationState)
+            case DiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value), diagramOrientation: orientationState)
+          default: print("Unrecognizable DiagramDirection")
         }
     }
     

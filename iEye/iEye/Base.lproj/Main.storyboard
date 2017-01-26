@@ -236,7 +236,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kGS-xA-Yu0">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.12" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="kGS-xA-Yu0">
                                 <rect key="frame" x="1062" y="506" width="264" height="31"/>
                                 <color key="tintColor" red="0.78431372549019607" green="0.12549019607843137" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -245,6 +245,7 @@
                             </slider>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BU6-eL-cbH">
                                 <rect key="frame" x="1169" y="786" width="51" height="31"/>
+                                <color key="onTintColor" red="0.7843137255" green="0.12549019610000001" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="orientationToggleDidSwitch:" destination="kZZ-Iw-6sX" eventType="valueChanged" id="c25-Rw-yN2"/>
                                 </connections>
@@ -267,7 +268,7 @@
                                     <action selector="toVerticalTestButtonPressed:" destination="kZZ-Iw-6sX" eventType="touchUpInside" id="KVh-Lc-NEj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="140" placeholderIntrinsicHeight="56" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8s-TL-cQc" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="140" placeholderIntrinsicHeight="56" text="1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8s-TL-cQc" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
                                 <rect key="frame" x="1152" y="200" width="75" height="56"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -280,13 +281,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-sF-Fwy" customClass="DiagramComponentView" customModule="iEye" customModuleProvider="target">
-                                <rect key="frame" x="341.5" y="514" width="683" height="128"/>
+                                <rect key="frame" x="341.5" y="448" width="683" height="128"/>
+                                <color key="backgroundColor" red="0.52549019610000003" green="0.76862745099999996" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Z8a-Lg-cx4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gm9-UH-jgM" customClass="DiagramComponentView" customModule="iEye" customModuleProvider="target">
-                                <rect key="frame" x="341.5" y="382" width="683" height="128"/>
+                                <rect key="frame" x="341.5" y="448" width="683" height="128"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.42352941179999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="hBb-Qa-dHk"/>
                                 </constraints>
@@ -297,12 +300,13 @@
                             <constraint firstItem="GlP-Gq-5vK" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="144" id="1ua-MS-Rus"/>
                             <constraint firstItem="3lw-k6-cNe" firstAttribute="centerX" secondItem="BU6-eL-cbH" secondAttribute="centerX" id="AfJ-yy-nMV"/>
                             <constraint firstItem="kGS-xA-Yu0" firstAttribute="top" secondItem="Z8s-TL-cQc" secondAttribute="bottom" constant="250" id="Bzx-Ec-6Ns"/>
+                            <constraint firstItem="Tmo-sF-Fwy" firstAttribute="centerY" secondItem="Nqp-Is-q4t" secondAttribute="centerY" id="FqW-8R-ajK"/>
                             <constraint firstAttribute="trailing" secondItem="kGS-xA-Yu0" secondAttribute="trailing" constant="42" id="HNP-C7-crx"/>
                             <constraint firstItem="3lw-k6-cNe" firstAttribute="top" secondItem="BU6-eL-cbH" secondAttribute="bottom" constant="25" id="SDP-kK-IDs"/>
-                            <constraint firstItem="gm9-UH-jgM" firstAttribute="top" secondItem="x5d-H4-qni" secondAttribute="bottom" constant="362" id="WgG-Ao-Zsw"/>
                             <constraint firstItem="Tmo-sF-Fwy" firstAttribute="centerX" secondItem="Nqp-Is-q4t" secondAttribute="centerX" id="ZEG-I8-E91"/>
                             <constraint firstItem="Z8s-TL-cQc" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="1152" id="b4L-Bt-3Lg"/>
                             <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="GlP-Gq-5vK" secondAttribute="bottom" constant="144" id="cGJ-8h-nW3"/>
+                            <constraint firstItem="gm9-UH-jgM" firstAttribute="centerY" secondItem="Nqp-Is-q4t" secondAttribute="centerY" id="cyR-l9-JN5"/>
                             <constraint firstAttribute="trailing" secondItem="Z8s-TL-cQc" secondAttribute="trailing" constant="139" id="d1x-Bw-eFN"/>
                             <constraint firstItem="tW7-DM-2JO" firstAttribute="top" secondItem="x5d-H4-qni" secondAttribute="bottom" constant="70" id="dZz-s8-GYW"/>
                             <constraint firstItem="BU6-eL-cbH" firstAttribute="top" secondItem="kGS-xA-Yu0" secondAttribute="bottom" constant="250" id="e3Q-Nl-yMB"/>
@@ -312,17 +316,18 @@
                             <constraint firstItem="gm9-UH-jgM" firstAttribute="centerX" secondItem="Nqp-Is-q4t" secondAttribute="centerX" id="pHg-bp-jNA"/>
                             <constraint firstItem="tW7-DM-2JO" firstAttribute="leading" secondItem="Nqp-Is-q4t" secondAttribute="leading" constant="100" id="qq2-2m-Bf4"/>
                             <constraint firstItem="Tmo-sF-Fwy" firstAttribute="width" secondItem="Nqp-Is-q4t" secondAttribute="width" multiplier="1/2" id="sKv-E7-tLN"/>
-                            <constraint firstItem="XtI-WG-Qhy" firstAttribute="top" secondItem="Tmo-sF-Fwy" secondAttribute="bottom" constant="382" id="t2s-2M-ELd"/>
                             <constraint firstItem="gm9-UH-jgM" firstAttribute="width" secondItem="Nqp-Is-q4t" secondAttribute="width" multiplier="1/2" id="yKj-3t-ddk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomDiagramCenterXConstraint" destination="FqW-8R-ajK" id="t4k-9w-2qa"/>
                         <outlet property="bottomDiagramComponentView" destination="Tmo-sF-Fwy" id="jhe-78-y1C"/>
                         <outlet property="orientationReadOutLabel" destination="3lw-k6-cNe" id="ARP-5c-aJw"/>
                         <outlet property="orientationToggleSwitch" destination="BU6-eL-cbH" id="aGn-cK-a2L"/>
                         <outlet property="scaleAdjustSlider" destination="kGS-xA-Yu0" id="S09-y1-c57"/>
                         <outlet property="scaleReadOutLabel" destination="Z8s-TL-cQc" id="fZJ-P3-zqa"/>
                         <outlet property="testDoneButton" destination="GlP-Gq-5vK" id="rZL-C6-YDs"/>
+                        <outlet property="topDiagramCenterXConstraint" destination="cyR-l9-JN5" id="4Kd-mr-psW"/>
                         <outlet property="topDiagramComponentView" destination="gm9-UH-jgM" id="iue-k8-x1n"/>
                         <outlet property="verticalTestButton" destination="tW7-DM-2JO" id="9RY-hv-abO"/>
                     </connections>

@@ -14,7 +14,7 @@ class HorizontalTestViewController: UIViewController {
     @IBOutlet weak var scaleAdjustSlider: UISlider!
     
     @IBOutlet weak var orientationToggleSwitch: UISwitch!
-    var orientationState: HorizontalDiagramDirection = .top
+    var orientationState: DiagramDirection = .top
     @IBOutlet weak var orientationReadOutLabel: UILabel!
     
     @IBOutlet weak var testDoneButton: CircleButton!
@@ -23,28 +23,29 @@ class HorizontalTestViewController: UIViewController {
     @IBOutlet weak var topDiagramComponentView: DiagramComponentView!
     @IBOutlet weak var bottomDiagramComponentView: DiagramComponentView!
     
+    @IBOutlet weak var topDiagramCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomDiagramCenterXConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bottomDiagramComponentView.fillColor = UIColor(r: 134, g: 196, b: 131, a: 1.0)
-        topDiagramComponentView.fillColor = UIColor(r: 217, g: 108, b: 103, a: 1.0)
+        bottomDiagramComponentView.fillColor = UIColor.iEyeGreen
+        topDiagramComponentView.fillColor = UIColor.iEyeRed
         
-        scaleReadOutLabel.text = "1.0"
+        bottomDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
+        topDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
+        
+        bottomDiagramCenterXConstraint.constant = 0.5
+        topDiagramCenterXConstraint.constant = 0.5
+        
+        bottomDiagramComponentView.transform = CGAffineTransform(scaleX: 1, y: -1) // reflect the bottom diagram across the Y-axis
+        
         scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
         scaleReadOutLabel.layer.borderWidth = 1.5
         
-        scaleAdjustSlider.maximumValue = 1.0
-        scaleAdjustSlider.minimumValue = 0.10
-        scaleAdjustSlider.setValue(1.0, animated: true)
         scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI_2))
-        
         orientationToggleSwitch.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI_2))
-        orientationToggleSwitch.setOn(true, animated: true)
-        orientationToggleSwitch.onTintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 1.0)
-        orientationReadOutLabel.textColor = UIColor.black
-        orientationReadOutLabel.text = HorizontalDiagramDirection.top.rawValue
-        
+                
         verticalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         verticalTestButton.layer.borderWidth = 1.5
         verticalTestButton.contentEdgeInsets.top = 15.0
@@ -62,11 +63,10 @@ class HorizontalTestViewController: UIViewController {
         testDoneButton.contentEdgeInsets.right = 30.0 - offset
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     // MARK: IBActions
+    
+    // Navigation
     
     @IBAction func toVerticalTestButtonPressed(_ sender: Any) {
         let verticalTestVC = storyboard!.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
@@ -78,13 +78,16 @@ class HorizontalTestViewController: UIViewController {
         present(testSelectVC, animated: true, completion: nil)
     }
     
+    // Scale
+    
     @IBAction func scaleAdjustmentSliderValueChanged(_ sender: UISlider) {
         let roundedValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         scaleReadOutLabel.text = "\(roundedValue)"
         
         switch orientationState {
-            case .bottom: bottomDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: CGFloat(M_PI))
-            case .top: topDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
+            case .bottom: bottomDiagramComponentView.adjust(scale: CGFloat(sender.value), diagramOrientation: orientationState)
+            case .top: topDiagramComponentView.adjust(scale: CGFloat(sender.value), diagramOrientation: orientationState)
+          default: print("Unrecognizable DiagramDirection")
         }
     }
     

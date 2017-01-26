@@ -10,16 +10,20 @@ import Foundation
 import UIKit
 
 
-enum VerticalDiagramDirection: String {
+enum DiagramDirection: String {
     case left = "Left"
     case right = "Right"
-    var next: VerticalDiagramDirection { return self == .left ? .right : .left }
-}
-
-enum HorizontalDiagramDirection: String {
     case bottom = "Bottom"
     case top = "Top"
-    var next: HorizontalDiagramDirection { return self == .bottom ? .top : .bottom }
+    
+    var next: DiagramDirection {
+        switch self {
+            case .left: return .right
+            case .right: return .left
+            case .bottom: return .top
+            case .top: return .bottom
+        }
+    }
 }
 
 extension CGFloat {
