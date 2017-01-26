@@ -22,33 +22,24 @@ class VerticalTestViewController: UIViewController {
     
     @IBOutlet weak var leftDiagramComponentView: DiagramComponentView!
     @IBOutlet weak var rightDiagramComponentView: DiagramComponentView!
+    
+    @IBOutlet weak var leftDiagramCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightDiagramCenterXConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         leftDiagramComponentView.fillColor = UIColor.iEyeGreen
-        leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-        
         rightDiagramComponentView.fillColor = UIColor.iEyeRed
+        leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
+        leftDiagramCenterXConstraint.constant = 0.5
+        rightDiagramCenterXConstraint.constant = 0.5
+        leftDiagramComponentView.transform = CGAffineTransform(scaleX: -1, y: 1) // reflect the left diagram across the Y-axis
         
-        leftDiagramComponentView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
-        
-        scaleReadOutLabel.text = "1.0"
         scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
         scaleReadOutLabel.layer.borderWidth = 1.5
-        
-        scaleAdjustSlider.maximumValue = 1.0
-        scaleAdjustSlider.minimumValue = 0.10
-        scaleAdjustSlider.setValue(1.0, animated: true)
-        scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat)(M_PI_2))
-        
-        orientationToggleSwitch.setOn(true, animated: true)
-        orientationToggleSwitch.onTintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 1.0)
-        orientationToggleSwitch.tintColor = UIColor(red: 200.0/255.0, green: 32.0/255, blue: 30.0/255, alpha: 0.1)
-        
-        orientationReadOutLabel.textColor = UIColor.black
-        orientationReadOutLabel.text = VerticalDiagramDirection.right.rawValue
+        scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat(M_PI_2)))
         
         toHorizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         toHorizontalTestButton.layer.borderWidth = 1.5
@@ -65,10 +56,6 @@ class VerticalTestViewController: UIViewController {
         let offset = (testDoneButton.frame.width - testDoneButton.frame.height)
         testDoneButton.contentEdgeInsets.left = 30.0 - offset
         testDoneButton.contentEdgeInsets.right = 30.0 - offset
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     // MARK: - IBActions
@@ -92,8 +79,7 @@ class VerticalTestViewController: UIViewController {
         scaleReadOutLabel.text = "\(roundedValue)"
         
         switch orientationState {
-//            case VerticalDiagramDirection.left:  leftDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
-            case VerticalDiagramDirection.left:  leftDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: CGFloat(M_PI))
+            case VerticalDiagramDirection.left: leftDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: -1.0)
             case VerticalDiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
         }
     }

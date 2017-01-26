@@ -33,9 +33,7 @@ struct DiagramMeasurements {
 
 class DiagramComponentView: UIView {
     
-    var fillColor: UIColor = UIColor.black {
-        didSet { setNeedsDisplay() }
-    }
+    var fillColor: UIColor = UIColor.black { didSet { setNeedsDisplay() } }
     
     private func addOutlineLines(context: CGContext, measurements: DiagramMeasurements) -> () {
         context.move(to: measurements.boundsTopRight)
@@ -72,13 +70,21 @@ class DiagramComponentView: UIView {
         }
     }
     
+    private func generateCenterCircle(context: CGContext, measurements: DiagramMeasurements) -> CGRect {
+        fillColor.setFill()
+        let circleDiameter = measurements.small.ySpacing / 2.0
+        let origin =  CGPoint(x: measurements.boundsMiddleLeft.x - circleDiameter/2.0,
+                              y: measurements.boundsMiddleLeft.y - circleDiameter/2.0)
+        return CGRect(origin: origin, size: CGSize(width: circleDiameter, height: circleDiameter))
+    }
+    
     override func draw(_ rect: CGRect) {
         clipsToBounds = true
         UIColor.white.setFill()
         UIRectFill(rect)
         
         let lineWidth: CGFloat = 3.0
-        let diagramMeasurements = DiagramMeasurements(bounds: bounds.insetBy(dx: 0.5 * lineWidth, dy: 0.5 * lineWidth))
+        let diagramMeasurements = DiagramMeasurements(bounds: bounds.insetBy(dx: lineWidth/2.0, dy: lineWidth/2.0))
         
         if let context = UIGraphicsGetCurrentContext() {
             context.setStrokeColor(fillColor.cgColor)
@@ -91,17 +97,12 @@ class DiagramComponentView: UIView {
             // Draw it
             context.strokePath()
             // Add the circle
-            fillColor.setFill()
-            let circleDiameter = diagramMeasurements.small.ySpacing / 2.0
-            let origin =  CGPoint(x: diagramMeasurements.boundsMiddleLeft.x - circleDiameter/2.0,
-                                  y: diagramMeasurements.boundsMiddleLeft.y - circleDiameter/2.0)
-            let circleRect = CGRect(origin: origin, size: CGSize(width: circleDiameter, height: circleDiameter))
-            context.fillEllipse(in: circleRect)
+            context.fillEllipse(in: generateCenterCircle(context: context, measurements: diagramMeasurements))
         }
     }
     
     func adjust(scale: CGFloat, rotation: CGFloat) ->() {
-        transform = CGAffineTransform(rotationAngle: rotation).concatenating(CGAffineTransform(scaleX: scale, y: scale))
+        transform = rotation < 0 ? CGAffineTransform(scaleX: -scale, y: scale) : CGAffineTransform(scaleX: scale, y: scale)
     }
     
 }
