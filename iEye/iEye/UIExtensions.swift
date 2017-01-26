@@ -39,6 +39,14 @@ extension UIColor {
         self.init(red: CGFloat(rgbValue: r), green: CGFloat(rgbValue: g), blue: CGFloat(rgbValue: b), alpha: a)
     }
     
+    open class var iEyeGreen: UIColor {
+        return UIColor(r: 134, g: 196, b: 131, a: 1.0)
+    }
+    
+    open class var iEyeRed: UIColor {
+        return UIColor(r: 217, g: 108, b: 103, a: 1.0)
+    }
+    
 }
 
 

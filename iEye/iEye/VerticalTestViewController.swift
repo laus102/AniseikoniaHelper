@@ -26,8 +26,13 @@ class VerticalTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        leftDiagramComponentView.fillColor = UIColor(r: 134, g: 196, b: 131, a: 1.0)
-        rightDiagramComponentView.fillColor = UIColor(r: 217, g: 108, b: 103, a: 1.0)
+        leftDiagramComponentView.fillColor = UIColor.iEyeGreen
+        leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
+        
+        rightDiagramComponentView.fillColor = UIColor.iEyeRed
+        rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
+        
+        leftDiagramComponentView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
         
         scaleReadOutLabel.text = "1.0"
         scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
@@ -68,6 +73,8 @@ class VerticalTestViewController: UIViewController {
     
     // MARK: - IBActions
     
+    // Navigation
+    
     @IBAction func toHorizontalTestButtonPressed(_ sender: Any) {
         let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
         present(horizontalTestVC, animated: true, completion: nil)
@@ -78,13 +85,16 @@ class VerticalTestViewController: UIViewController {
         present(testSelectVC, animated: true, completion: nil)
     }
     
+    // Scale
+    
     @IBAction func scaleAdjustSliderValueChanged(_ sender: UISlider) {
         let roundedValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         scaleReadOutLabel.text = "\(roundedValue)"
         
         switch orientationState {
-            case VerticalDiagramDirection.left:  leftDiagramComponentView.adjust(scale: CGFloat(sender.value))
-            case VerticalDiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value))
+//            case VerticalDiagramDirection.left:  leftDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
+            case VerticalDiagramDirection.left:  leftDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: CGFloat(M_PI))
+            case VerticalDiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
         }
     }
     

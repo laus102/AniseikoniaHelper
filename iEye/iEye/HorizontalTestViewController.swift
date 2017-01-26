@@ -83,8 +83,8 @@ class HorizontalTestViewController: UIViewController {
         scaleReadOutLabel.text = "\(roundedValue)"
         
         switch orientationState {
-            case .bottom: bottomDiagramComponentView.adjust(scale: CGFloat(sender.value))
-            case .top: topDiagramComponentView.adjust(scale: CGFloat(sender.value))
+            case .bottom: bottomDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: CGFloat(M_PI))
+            case .top: topDiagramComponentView.adjust(scale: CGFloat(sender.value), rotation: 0.0)
         }
     }
     
