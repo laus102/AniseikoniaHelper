@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol TestSelectViewControllerDelegate: class {
+    func toHorizontalButtonPressed(in sender: TestSelectViewController)
+    func toVerticalButtonPressed(in sender: TestSelectViewController)
+}
+
 class TestSelectViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var verticalTestButton: PillButton!
     @IBOutlet weak var horizontalTestButton: PillButton!
+    
+    weak var delegate: TestSelectViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +41,15 @@ class TestSelectViewController: UIViewController {
     }
     
     @IBAction func verticalTestButtonPressed(_ sender: Any) {
-        let verticalTestVC = storyboard!.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
-        present(verticalTestVC, animated: true, completion: nil)
+//        let verticalTestVC = storyboard!.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
+//        present(verticalTestVC, animated: true, completion: nil)
+        delegate?.toVerticalButtonPressed(in: self)
     }
     
     @IBAction func horizontalTestButtonPressed(_ sender: Any) {
-        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
-        present(horizontalTestVC, animated: true, completion: nil)
+//        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
+//        present(horizontalTestVC, animated: true, completion: nil)
+        delegate?.toHorizontalButtonPressed(in: self)
     }
     
     override func didReceiveMemoryWarning() {

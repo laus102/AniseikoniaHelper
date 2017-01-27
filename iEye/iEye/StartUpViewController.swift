@@ -12,31 +12,28 @@ class StartUpViewController: UIViewController {
     
     @IBOutlet weak private var _titleLabel: UILabel!
     @IBOutlet weak private var _descriptionLabel: UILabel!
-    
+
     let transition = StartToTestAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        transitioningDelegate = self
+        
         let temp = NSMutableAttributedString(string: "Welcome to iEye")
         temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(11, 4))
+        
         _titleLabel.attributedText = temp
-        
         _descriptionLabel.text = "A better way to diagnose Aniseikonia"
-        
         _descriptionLabel.alpha = 0
-        UIView.animate(withDuration: 2.5) {
-            self._descriptionLabel.alpha = 1
-        }
-        let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
-        testSelectVC.transitioningDelegate = self
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
-            self.present(testSelectVC, animated: true, completion: nil)
-        })
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func fadeTextIn(with duration: TimeInterval, completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: duration, animations: { 
+            self._descriptionLabel.alpha = 1
+        }) { (finished) in
+            completion?()
+        }
     }
 }
 
@@ -48,4 +45,6 @@ extension StartUpViewController: UIViewControllerTransitioningDelegate {
         return transition
     }
 }
+
+
 

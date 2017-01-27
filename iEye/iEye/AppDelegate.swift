@@ -12,10 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
    var window: UIWindow?
-
+   var appRouter: Router?
 
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      // Override point for customization after application launch.
+    
+    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    window = UIWindow(frame: UIScreen.main.bounds)
+    appRouter = Router(window: window!, storyboard: mainStoryboard)
+    
       return true
    }
 

@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol VerticalTestViewControllerDelegate: class {
+    func toHorizontalButtonPressed(in sender: VerticalTestViewController)
+    func toDoneButtonPressed(in sender: VerticalTestViewController)
+}
+
 class VerticalTestViewController: UIViewController {
     
     @IBOutlet weak var scaleReadOutLabel: PillLabel!
@@ -26,6 +31,8 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var leftDiagramCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightDiagramCenterXConstraint: NSLayoutConstraint!
 
+    weak var delegate: VerticalTestViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,13 +70,15 @@ class VerticalTestViewController: UIViewController {
     // Navigation
     
     @IBAction func toHorizontalTestButtonPressed(_ sender: Any) {
-        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
-        present(horizontalTestVC, animated: true, completion: nil)
+//        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
+//        present(horizontalTestVC, animated: true, completion: nil)
+        delegate?.toHorizontalButtonPressed(in: self)
     }
     
     @IBAction func testDoneButtonPressed(_ sender: Any) {
-        let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
-        present(testSelectVC, animated: true, completion: nil)
+//        let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
+//        present(testSelectVC, animated: true, completion: nil)
+        delegate?.toDoneButtonPressed(in: self)
     }
     
     // Scale

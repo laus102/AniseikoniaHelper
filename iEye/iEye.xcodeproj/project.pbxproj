@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D5E2D7F1E367DA600247550 /* DiagramComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E2D7E1E367DA600247550 /* DiagramComponentView.swift */; };
 		4D5E2D811E36823500247550 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5E2D801E36823500247550 /* UIExtensions.swift */; };
+		4D63DD501E3A71F7001AB307 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D63DD4F1E3A71F7001AB307 /* Router.swift */; };
 		4D7045991E31662B00591E20 /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045981E31662B00591E20 /* PillButton.swift */; };
 		4D70459B1E316F6500591E20 /* StartToTestAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D70459A1E316F6500591E20 /* StartToTestAnimator.swift */; };
 		4D7045A11E31755200591E20 /* StartUpViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		4D5E2D7E1E367DA600247550 /* DiagramComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagramComponentView.swift; sourceTree = "<group>"; };
 		4D5E2D801E36823500247550 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		4D63DD4F1E3A71F7001AB307 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4D7045981E31662B00591E20 /* PillButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		4D70459A1E316F6500591E20 /* StartToTestAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartToTestAnimator.swift; sourceTree = "<group>"; };
 		4D7045A01E31755200591E20 /* StartUpViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				C6CD39DB1E2EC80E004BC44B /* AppDelegate.swift */,
+				4D63DD4F1E3A71F7001AB307 /* Router.swift */,
 				C6CC1CB91E301BD500F4CDD1 /* View Controllers */,
 				4D70459D1E316F7E00591E20 /* UI Elements */,
 				4D70459C1E316F7000591E20 /* Animators */,
@@ -203,6 +206,7 @@
 				4D7045A31E31C1AE00591E20 /* PillLabel.swift in Sources */,
 				C6CD39DC1E2EC80E004BC44B /* AppDelegate.swift in Sources */,
 				4D70459B1E316F6500591E20 /* StartToTestAnimator.swift in Sources */,
+				4D63DD501E3A71F7001AB307 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
