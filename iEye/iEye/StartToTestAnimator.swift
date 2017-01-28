@@ -56,6 +56,5 @@ class StartToTestAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         selectTestView.layer.cornerRadius = presenting ? 0.0 : 20.0/xScaleFactor
     }
     
-    
-
 }
+

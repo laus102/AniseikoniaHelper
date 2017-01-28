@@ -31,7 +31,7 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var leftDiagramCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightDiagramCenterXConstraint: NSLayoutConstraint!
 
-    weak var delegate: VerticalTestViewControllerDelegate?
+    weak var delegate: VerticalTestViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
