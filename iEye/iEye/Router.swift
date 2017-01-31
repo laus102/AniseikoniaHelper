@@ -9,99 +9,95 @@
 import UIKit
 
 
-struct iEyeTransition {
-    var leftToRight: CATransition {
-        let trans = CATransition()
-        trans.duration = 0.5
-        trans.type = "push"
-        trans.subtype = "fromLeft"
-        return trans
-    }
-    
-    var bottomToTop: CATransition {
-        let trans = CATransition()
-        trans.duration = 0.5
-        trans.type = "push"
-        trans.subtype = "fromBottom"
-        return trans
-    }
+class Router: NSObject {
+   
+   let window: UIWindow
+   let storyboard: UIStoryboard
+   let navigationController: UINavigationController
+   
+   fileprivate let _testSelectVC: TestSelectViewController
+   fileprivate let _horizontalTestVC: HorizontalTestViewController
+   fileprivate let _verticalTestVC: VerticalTestViewController
+   
+   init(window: UIWindow, storyboard: UIStoryboard) {
+      self.window = window
+      self.storyboard = storyboard
+      
+      _testSelectVC = storyboard.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
+      _horizontalTestVC = storyboard.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
+      _verticalTestVC = storyboard.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
+      
+      self.navigationController = UINavigationController(rootViewController: _testSelectVC)
+      super.init()
+      
+      navigationController.setNavigationBarHidden(true, animated: false)
+      navigationController.delegate = self
+      
+      _testSelectVC.delegate = self
+      _horizontalTestVC.delegate = self
+      _verticalTestVC.delegate = self
+      
+      
+      window.rootViewController = navigationController
+      window.makeKeyAndVisible()
+      
+      _testSelectVC.fadeTextIn(with: 5.0)
+   }
 }
 
-////////////////////////////////////
-
-class Router {
-    
-    let window: UIWindow
-
-    fileprivate let _testSelectVC: TestSelectViewController
-    fileprivate let _horizontalTestVC: HorizontalTestViewController
-    fileprivate let _verticalTestVC: VerticalTestViewController
-    let _transitions = iEyeTransition()
-    
-    init(window: UIWindow, storyboard: UIStoryboard) {
-        self.window = window
-        
-        // ** Combine test VCs **
-        
-        _testSelectVC = storyboard.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
-        _horizontalTestVC = storyboard.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
-        _verticalTestVC = storyboard.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
-        
-        _testSelectVC.delegate = self
-        _horizontalTestVC.delegate = self
-        _verticalTestVC.delegate = self
-        
-        window.rootViewController = _testSelectVC
-        window.makeKeyAndVisible()
-        
-        _testSelectVC.fadeTextIn(with: 5.0)
-    }
+extension Router: UINavigationControllerDelegate {
+   
+   func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+      guard _testSelectVC != viewController else { return }
+      navigationController.viewControllers = [_testSelectVC, viewController]
+   }
+   
+   // Tell the navigationController how to animate the transition
+   func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+      
+      let _transitions = TransitionAnimator()
+      
+      switch fromVC {
+         case _testSelectVC: _transitions.transitionType = toVC == _horizontalTestVC ? .horizontal : .vertical
+         case _horizontalTestVC: _transitions.transitionType = toVC == _horizontalTestVC ? .vertical : .done
+         case _verticalTestVC: _transitions.transitionType = toVC == _horizontalTestVC ? .horizontal : .done
+        default: break
+      }
+      
+      return _transitions
+   }
 }
 
 ////////////////////////////////////////////////////////
 
 extension Router: TestSelectViewControllerDelegate {
-    
-    func toHorizontalButtonPressed(in sender: TestSelectViewController) {
-        window.layer.add(_transitions.leftToRight, forKey: "leftToRight")
-        self._testSelectVC.present(self._horizontalTestVC, animated: true, completion: nil)
-    }
-    
-    func toVerticalButtonPressed(in sender: TestSelectViewController) {
-        window.layer.add(_transitions.bottomToTop, forKey: "topToBottom")
-        self._testSelectVC.present(self._verticalTestVC, animated: true, completion: nil)
-    }
-    
+   
+   func toHorizontalButtonPressed(in sender: TestSelectViewController)
+      { navigationController.pushViewController(_horizontalTestVC, animated: true) }
+   
+   func toVerticalButtonPressed(in sender: TestSelectViewController)
+      { navigationController.pushViewController(_verticalTestVC, animated: true) }
 }
 
 ////////////////////////////////////////////////////////
 
 extension Router: HorizontalTestViewControllerDelegate {
-    
-    func toDoneButtonPressed(in sender: HorizontalTestViewController) {
-        sender.dismiss(animated: true, completion: nil)
-    }
-    
-    func toVerticalButtonPressed(in sender: HorizontalTestViewController) {
-        sender.dismiss(animated: true) {
-            self.window.layer.add(self._transitions.bottomToTop, forKey: "topToBottom")
-            self.window.rootViewController?.present(self._verticalTestVC, animated: true, completion: nil)
-        }
-    }
+   
+   func toVerticalButtonPressed(inHorizontalVC sender: HorizontalTestViewController)
+      { navigationController.pushViewController(_verticalTestVC, animated: true) }
+   
+   func toDoneButtonPressed(inHorizontalVC sender: HorizontalTestViewController)
+      { navigationController.popToRootViewController(animated: true) }
 }
 
 ////////////////////////////////////////////////////////
 
 extension Router: VerticalTestViewControllerDelegate {
-    
-    func toHorizontalButtonPressed(in sender: VerticalTestViewController) {
-        window.layer.add(_transitions.leftToRight, forKey: "leftToRight")
-        sender.dismiss(animated: true) {
-            self.window.rootViewController?.present(self._horizontalTestVC, animated: true, completion: nil)
-        }
-    }
-    
-    func toDoneButtonPressed(in sender: VerticalTestViewController) {
-        sender.dismiss(animated: true, completion: nil)
-    }
+   
+   func toHorizontalButtonPressed(inVerticalVC sender: VerticalTestViewController)
+      { navigationController.pushViewController(_horizontalTestVC, animated: true) }
+   
+   func toDoneButtonPressed(inVerticalVC sender: VerticalTestViewController)
+      { navigationController.popToRootViewController(animated: true) }
 }
+

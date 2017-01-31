@@ -13,7 +13,7 @@ class StartUpViewController: UIViewController {
     @IBOutlet weak private var _titleLabel: UILabel!
     @IBOutlet weak private var _descriptionLabel: UILabel!
 
-    let transition = StartToTestAnimator()
+    let transition = TransitionAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol VerticalTestViewControllerDelegate: class {
-    func toHorizontalButtonPressed(in sender: VerticalTestViewController)
-    func toDoneButtonPressed(in sender: VerticalTestViewController)
+    func toHorizontalButtonPressed(inVerticalVC sender: VerticalTestViewController)
+    func toDoneButtonPressed(inVerticalVC sender: VerticalTestViewController)
 }
 
 class VerticalTestViewController: UIViewController {
@@ -72,13 +72,13 @@ class VerticalTestViewController: UIViewController {
     @IBAction func toHorizontalTestButtonPressed(_ sender: Any) {
 //        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
 //        present(horizontalTestVC, animated: true, completion: nil)
-        delegate?.toHorizontalButtonPressed(in: self)
+        delegate?.toHorizontalButtonPressed(inVerticalVC: self)
     }
     
     @IBAction func testDoneButtonPressed(_ sender: Any) {
 //        let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
 //        present(testSelectVC, animated: true, completion: nil)
-        delegate?.toDoneButtonPressed(in: self)
+        delegate?.toDoneButtonPressed(inVerticalVC: self)
     }
     
     // Scale
