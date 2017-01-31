@@ -48,11 +48,11 @@ class Router: NSObject {
 extension Router: UINavigationControllerDelegate {
    
    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-      guard _testSelectVC != viewController else { return }
-      navigationController.viewControllers = [_testSelectVC, viewController]
+      if viewController != _testSelectVC { navigationController.viewControllers = [_testSelectVC, viewController] }
    }
    
-   // Tell the navigationController how to animate the transition
+   // Tell the navController how to animate the transition
+   
    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       
       let _transitions = TransitionAnimator()
