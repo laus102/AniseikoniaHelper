@@ -8,158 +8,73 @@
 
 import UIKit
 
+
 enum TransitionType: String {
    case horizontal = "Horizontal"
    case vertical = "Vertical"
    case done = "Done"
+   
+   func startingCenter(of frame: CGRect) -> CGPoint {
+      switch self {
+         case .horizontal: return CGPoint(x: 0.0, y: frame.midY)
+         case .vertical: return CGPoint(x: frame.midX, y: frame.maxY)
+         case .done: return CGPoint(x: frame.midX, y: frame.midY)
+      }
+   }
+   
+   func endingCenter(of view: UIView) -> CGPoint
+      { return CGPoint(x: view.bounds.midX, y: view.bounds.midY) }
+   
+   func startingTransform() -> CGAffineTransform {
+      switch self {
+         case .done: return CGAffineTransform(scaleX: 0.0, y: 0.0)
+        default: return CGAffineTransform.identity
+      }
+   }
+   
 }
+
+
 
 class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    
-   let duration = 3.0
-   var transitionType =  TransitionType.done
-   var presenting = true
+   let duration = 0.5
+   var transition = TransitionType.done  // default transition
    
    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval { return duration }
    
+   ///////////////////////////////////////////////////////////////////////////////////////////////
+   
    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
       
-      switch transitionType {
-         case TransitionType.horizontal: animateHorizontalTransition(using: transitionContext)
-         case TransitionType.vertical: animateVerticalTransition(using: transitionContext)
-         case TransitionType.done: animateDoneTransition(using: transitionContext)
-      }
-   }
-   
-   ///////////////////////////////////////////////////////////////////////////////////////////////
-   
-   func animateHorizontalTransition(using transitionContext: UIViewControllerContextTransitioning) {
+      let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)! // where we goin
+      toView.clipsToBounds = true
+      toView.center = transition.startingCenter(of: toView.frame)
+      toView.transform = transition.startingTransform()
       
-      let containerView = transitionContext.containerView
-      let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)! // selectTest view
-      let selectTestView = presenting ? toView : transitionContext.view(forKey: UITransitionContextViewKey.from)!
-      let initialFrame = presenting ? CGRect.zero : selectTestView.frame
-      let finalFrame = presenting ?  selectTestView.frame : CGRect.zero
+      transitionContext.containerView.addSubview(toView)
+      transitionContext.containerView.bringSubview(toFront: toView)
       
-      let xScaleFactor = presenting ? initialFrame.width / finalFrame.width : finalFrame.width / initialFrame.width
-      let yScaleFactor = presenting ? initialFrame.height / finalFrame.height : finalFrame.height / initialFrame.height
-      
-      let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
-      
-      if presenting {
-         selectTestView.transform = scaleTransform
-         selectTestView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
-         selectTestView.clipsToBounds = true
-      }
-      
-      containerView.addSubview(toView)
-      containerView.bringSubview(toFront: selectTestView)
-      
-      UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.73,
+      UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.9,
                      initialSpringVelocity: 0.0, options: [],
-                     animations: {
-                        selectTestView.transform = self.presenting ? CGAffineTransform.identity : scaleTransform
-                        selectTestView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-      },
-                     completion: {_ in
-                        transitionContext.completeTransition(true)
-      }
-      )
+                     animations: { toView.transform = CGAffineTransform.identity
+                                   toView.center = self.transition.endingCenter(of: toView) },
+                     completion: { _ in transitionContext.completeTransition(true) } )
       
-      let round = CABasicAnimation(keyPath: "cornerRadius")
-      round.fromValue = presenting ? 20.0/xScaleFactor : 0.0
-      round.toValue = presenting ? 0.0 : 20.0/xScaleFactor
-      round.duration = duration / 2
-      selectTestView.layer.add(round, forKey: nil)
-      selectTestView.layer.cornerRadius = presenting ? 0.0 : 20.0/xScaleFactor
+      //      toView.center = ( (transitionType == .horizontal) || (transitionType == .vertical) ) ?
+      //                        ( transitionType == .horizontal ?
+      //                           CGPoint(x: 0.0, y: toView.frame.midY)
+      //                           : CGPoint(x: toView.frame.midX, y: toView.frame.maxY) )
+      //                        : CGPoint(x: toView.frame.midX, y: toView.frame.midY)
       
    }
    
-   ///////////////////////////////////////////////////////////////////////////////////////////////
-   
-   func animateVerticalTransition(using transitionContext: UIViewControllerContextTransitioning) {
-      
-      let containerView = transitionContext.containerView
-      let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)! // selectTest view
-      let selectTestView = presenting ? toView : transitionContext.view(forKey: UITransitionContextViewKey.from)!
-      let initialFrame = presenting ? CGRect.zero : selectTestView.frame
-      let finalFrame = presenting ?  selectTestView.frame : CGRect.zero
-      
-      let xScaleFactor = presenting ? initialFrame.width / finalFrame.width : finalFrame.width / initialFrame.width
-      let yScaleFactor = presenting ? initialFrame.height / finalFrame.height : finalFrame.height / initialFrame.height
-      
-      let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
-      
-      if presenting {
-         selectTestView.transform = scaleTransform
-         selectTestView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
-         selectTestView.clipsToBounds = true
-      }
-      
-      containerView.addSubview(toView)
-      containerView.bringSubview(toFront: selectTestView)
-      
-      UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.73,
-                     initialSpringVelocity: 0.0, options: [],
-                     animations: {
-                        selectTestView.transform = self.presenting ? CGAffineTransform.identity : scaleTransform
-                        selectTestView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-      },
-                     completion: {_ in
-                        transitionContext.completeTransition(true)
-      }
-      )
-      
-      let round = CABasicAnimation(keyPath: "cornerRadius")
-      round.fromValue = presenting ? 20.0/xScaleFactor : 0.0
-      round.toValue = presenting ? 0.0 : 20.0/xScaleFactor
-      round.duration = duration / 2
-      selectTestView.layer.add(round, forKey: nil)
-      selectTestView.layer.cornerRadius = presenting ? 0.0 : 20.0/xScaleFactor
-   }
-   
-   ///////////////////////////////////////////////////////////////////////////////////////////////
-   
-   func animateDoneTransition(using transitionContext: UIViewControllerContextTransitioning) {
-      
-      let containerView = transitionContext.containerView
-      let toView = transitionContext.view(forKey: UITransitionContextViewKey.to)! // selectTest view
-      let selectTestView = presenting ? toView : transitionContext.view(forKey: UITransitionContextViewKey.from)!
-      let initialFrame = presenting ? CGRect.zero : selectTestView.frame
-      let finalFrame = presenting ?  selectTestView.frame : CGRect.zero
-      
-      let xScaleFactor = presenting ? initialFrame.width / finalFrame.width : finalFrame.width / initialFrame.width
-      let yScaleFactor = presenting ? initialFrame.height / finalFrame.height : finalFrame.height / initialFrame.height
-      
-      let scaleTransform = CGAffineTransform(scaleX: xScaleFactor, y: yScaleFactor)
-      
-      if presenting {
-         selectTestView.transform = scaleTransform
-         selectTestView.center = CGPoint(x: initialFrame.midX, y: initialFrame.midY)
-         selectTestView.clipsToBounds = true
-      }
-      
-      containerView.addSubview(toView)
-      containerView.bringSubview(toFront: selectTestView)
-      
-      UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 0.73,
-                     initialSpringVelocity: 0.0, options: [],
-                     animations: {
-                        selectTestView.transform = self.presenting ? CGAffineTransform.identity : scaleTransform
-                        selectTestView.center = CGPoint(x: finalFrame.midX, y: finalFrame.midY)
-      },
-                     completion: {_ in
-                        transitionContext.completeTransition(true)
-      }
-      )
-      
-      let round = CABasicAnimation(keyPath: "cornerRadius")
-      round.fromValue = presenting ? 20.0/xScaleFactor : 0.0
-      round.toValue = presenting ? 0.0 : 20.0/xScaleFactor
-      round.duration = duration / 2
-      selectTestView.layer.add(round, forKey: nil)
-      selectTestView.layer.cornerRadius = presenting ? 0.0 : 20.0/xScaleFactor
-   }
+//      let round = CABasicAnimation(keyPath: "cornerRadius")
+//      round.fromValue = 20.0/xScaleFactor
+//      round.toValue = 0.0
+//      round.duration = duration / 2
+//      toView.layer.add(round, forKey: nil)
+//      toView.layer.cornerRadius = 0.0
    
 }
 

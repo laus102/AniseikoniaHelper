@@ -28,6 +28,7 @@ class Router: NSObject {
       _verticalTestVC = storyboard.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
       
       self.navigationController = UINavigationController(rootViewController: _testSelectVC)
+      
       super.init()
       
       navigationController.setNavigationBarHidden(true, animated: false)
@@ -36,7 +37,6 @@ class Router: NSObject {
       _testSelectVC.delegate = self
       _horizontalTestVC.delegate = self
       _verticalTestVC.delegate = self
-      
       
       window.rootViewController = navigationController
       window.makeKeyAndVisible()
@@ -47,9 +47,8 @@ class Router: NSObject {
 
 extension Router: UINavigationControllerDelegate {
    
-   func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-      if viewController != _testSelectVC { navigationController.viewControllers = [_testSelectVC, viewController] }
-   }
+   func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
+      { if viewController != _testSelectVC { navigationController.viewControllers = [_testSelectVC, viewController] } }
    
    // Tell the navController how to animate the transition
    
@@ -58,9 +57,9 @@ extension Router: UINavigationControllerDelegate {
       let _transitions = TransitionAnimator()
       
       switch fromVC {
-         case _testSelectVC: _transitions.transitionType = toVC == _horizontalTestVC ? .horizontal : .vertical
-         case _horizontalTestVC: _transitions.transitionType = toVC == _horizontalTestVC ? .vertical : .done
-         case _verticalTestVC: _transitions.transitionType = toVC == _horizontalTestVC ? .horizontal : .done
+         case _testSelectVC: _transitions.transition = toVC == _horizontalTestVC ? .horizontal : .vertical
+         case _horizontalTestVC: _transitions.transition = toVC == _verticalTestVC ? .vertical : .done
+         case _verticalTestVC: _transitions.transition = toVC == _horizontalTestVC ? .horizontal : .done
         default: break
       }
       
