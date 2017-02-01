@@ -25,15 +25,9 @@ enum TransitionType: String {
    func endingCenter(of view: UIView) -> CGPoint
       { return CGPoint(x: view.bounds.midX, y: view.bounds.midY) }
    
-   func startingTransform() -> CGAffineTransform {
-      switch self {
-         case .done: return CGAffineTransform(scaleX: 0.0, y: 0.0)
-        default: return CGAffineTransform.identity
-      }
-   }
-   
+   func startingTransform() -> CGAffineTransform
+      { return self == .done ? CGAffineTransform(scaleX: 0.0, y: 0.0) : CGAffineTransform.identity }
 }
-
 
 
 class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -42,8 +36,6 @@ class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    var transition = TransitionType.done  // default transition
    
    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval { return duration }
-   
-   ///////////////////////////////////////////////////////////////////////////////////////////////
    
    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
       
@@ -61,20 +53,13 @@ class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                    toView.center = self.transition.endingCenter(of: toView) },
                      completion: { _ in transitionContext.completeTransition(true) } )
       
-      //      toView.center = ( (transitionType == .horizontal) || (transitionType == .vertical) ) ?
-      //                        ( transitionType == .horizontal ?
-      //                           CGPoint(x: 0.0, y: toView.frame.midY)
-      //                           : CGPoint(x: toView.frame.midX, y: toView.frame.maxY) )
-      //                        : CGPoint(x: toView.frame.midX, y: toView.frame.midY)
+      //      let round = CABasicAnimation(keyPath: "cornerRadius")
+      //      round.fromValue = 20.0/xScaleFactor
+      //      round.toValue = 0.0
+      //      round.duration = duration / 2
+      //      toView.layer.add(round, forKey: nil)
+      //      toView.layer.cornerRadius = 0.0
       
    }
-   
-//      let round = CABasicAnimation(keyPath: "cornerRadius")
-//      round.fromValue = 20.0/xScaleFactor
-//      round.toValue = 0.0
-//      round.duration = duration / 2
-//      toView.layer.add(round, forKey: nil)
-//      toView.layer.cornerRadius = 0.0
-   
 }
 
