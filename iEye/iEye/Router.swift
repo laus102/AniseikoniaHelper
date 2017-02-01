@@ -41,7 +41,7 @@ class Router: NSObject {
       window.rootViewController = navigationController
       window.makeKeyAndVisible()
       
-      _testSelectVC.fadeTextIn(with: 5.0)
+      _testSelectVC.displayAndDismissSplashScreenWith(DescriptionFadeIn: 2.5, splashFadeOut: 1.0, testFadeIn: 1.0)
    }
 }
 
@@ -49,8 +49,6 @@ extension Router: UINavigationControllerDelegate {
    
    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
       { if viewController != _testSelectVC { navigationController.viewControllers = [_testSelectVC, viewController] } }
-   
-   // Tell the navController how to animate the transition
    
    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
       

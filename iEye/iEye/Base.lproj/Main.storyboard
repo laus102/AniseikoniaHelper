@@ -13,7 +13,6 @@
         <!--Start Up View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="StartUpViewController" id="BYZ-38-t0r" customClass="StartUpViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -49,6 +48,7 @@
                         <outlet property="_titleLabel" destination="uoE-Vv-vej" id="B7I-di-1Q8"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="108" y="139"/>
         </scene>
@@ -179,8 +179,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdn-k3-rIh" customClass="PillButton" customModule="iEye" customModuleProvider="target">
-                                <rect key="frame" x="657" y="433" width="52" height="48"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
+                                <rect key="frame" x="642" y="433" width="82" height="48"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
                                 <state key="normal" title="Vertical">
                                     <color key="titleColor" red="0.78431372549019607" green="0.12549019607843137" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -197,7 +197,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGN-N1-hNb" customClass="PillButton" customModule="iEye" customModuleProvider="target">
-                                <rect key="frame" x="648" y="581" width="71" height="30"/>
+                                <rect key="frame" x="633" y="563" width="101" height="48"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                 <state key="normal" title="Horizontal">
                                     <color key="titleColor" red="0.78614799219999998" green="0.12744692939999999" blue="0.11819095039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -234,7 +235,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A better way to test for Aniseikonia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-MC-3Ie">
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A better way to test for Aniseikonia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-MC-3Ie">
                             <rect key="frame" x="535" y="305" width="296" height="23"/>
                             <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
                             <nil key="textColor"/>

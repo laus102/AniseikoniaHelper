@@ -30,58 +30,43 @@ class TestSelectViewController: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // Splash page View
-      splashScreen.alpha = 1.0
+      // Splash Page View
       let temp = NSMutableAttributedString(string: "Welcome to iEye")
       temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(11, 4))
       splashTitleLabel.attributedText = temp
-      splashDescriptionLabel.text = "A better way to diagnose Aniseikonia"
-      splashDescriptionLabel.alpha = 0
       view.addSubview(splashScreen)
       
       // Test Select VC
       verticalTestButton.layer.borderColor = UIColor.lightGray.cgColor
       verticalTestButton.layer.borderWidth = 1.0
-      verticalTestButton.contentEdgeInsets.top = 15.0
-      verticalTestButton.contentEdgeInsets.bottom = 15.0
-      verticalTestButton.contentEdgeInsets.left = 15.0
-      verticalTestButton.contentEdgeInsets.right = 15.0
-      
       horizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
       horizontalTestButton.layer.borderWidth = 1.0
-      horizontalTestButton.contentEdgeInsets.top = 15.0
-      horizontalTestButton.contentEdgeInsets.bottom = 15.0
-      horizontalTestButton.contentEdgeInsets.left = 15.0
-      horizontalTestButton.contentEdgeInsets.right = 15.0
    }
    
    /////////////////////////////////////////////////////////////////////////
-   func fadeTextIn(with duration: TimeInterval) {
+   func displayAndDismissSplashScreenWith(DescriptionFadeIn descriptionFadeIn: TimeInterval, splashFadeOut: TimeInterval, testFadeIn: TimeInterval) {
+
+      let removeSplashScreen = { (value: Bool) in self.splashScreen.removeFromSuperview() }
+      
+      let fadeInTestSelectView = { (value: Bool) in UIView.animate(withDuration: testFadeIn,
+                                                                   animations: { self.splashScreen.alpha = 0.0 },
+                                                                   completion: removeSplashScreen) }
+      
+      let fadeSplashViewOut = { (value: Bool) in UIView.animate(withDuration: splashFadeOut,
+                                                                animations: { self.splashTitleLabel.alpha = 0.0
+                                                                              self.splashDescriptionLabel.alpha = 0.0 },
+                                                                completion: fadeInTestSelectView) }
+      
       DispatchQueue.main.async {
-         UIView.animate(withDuration: duration, animations: { self.splashDescriptionLabel.alpha = 1 })
-         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4)) {
-            UIView.animate(withDuration: 1.5,
-                           animations: { self.splashScreen.alpha = 0.0 },
-                           completion: { (value: Bool) in self.splashScreen.removeFromSuperview() })
-         }
-      }
+         UIView.animate(withDuration: descriptionFadeIn,
+                        animations: { self.splashDescriptionLabel.alpha = 1 },
+                        completion: fadeSplashViewOut) }
    }
    
    /////////////////////////////////////////////////////////////////////////
-   @IBAction func verticalTestButtonPressed(_ sender: Any) {
-      delegate?.toVerticalButtonPressed(in: self)
-   }
    
-   /////////////////////////////////////////////////////////////////////////
-   @IBAction func horizontalTestButtonPressed(_ sender: Any) {
-      delegate?.toHorizontalButtonPressed(in: self)
-   }
+   @IBAction func verticalTestButtonPressed(_ sender: Any) { delegate?.toVerticalButtonPressed(in: self) }
+   @IBAction func horizontalTestButtonPressed(_ sender: Any) { delegate?.toHorizontalButtonPressed(in: self) }
    
-   /////////////////////////////////////////////////////////////////////////
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-   }
-   
-   // MARK: - Navigation
-   
+
 }
