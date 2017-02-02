@@ -7,7 +7,7 @@ It can occur as an overall difference between the two eyes, or as a difference i
 
 <br>
 
-<a href="http://imgur.com/SLnT2Q9"><img src="http://i.imgur.com/SLnT2Q9h.gif" title="source: imgur.com" /></a>
+<<a href="http://imgur.com/SLnT2Q9"><img src="http://i.imgur.com/SLnT2Q9.gif" title="source: imgur.com" /></a>
 
 <br>
 
