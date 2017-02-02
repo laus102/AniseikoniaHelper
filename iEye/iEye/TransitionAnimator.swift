@@ -10,30 +10,34 @@ import UIKit
 
 
 enum TransitionType: String {
-   case horizontal = "Horizontal"
-   case vertical = "Vertical"
-   case done = "Done"
+   case horizontal = "Horizontal" // Left to Right
+   case vertical = "Vertical" // Bottom to Top
+   case doneVertical = "DoneVertical" // Top to Bottom
+   case doneHorizontal = "DoneHorizontal" // Right to Left
    
    func startingCenter(of frame: CGRect) -> CGPoint {
       switch self {
          case .horizontal: return CGPoint(x: 0.0, y: frame.midY)
          case .vertical: return CGPoint(x: frame.midX, y: frame.maxY)
-         case .done: return CGPoint(x: frame.midX, y: frame.midY)
+         case .doneVertical: return CGPoint(x: frame.midX, y: frame.minY)
+         case .doneHorizontal: return CGPoint(x: frame.maxX, y: frame.midY)
       }
    }
    
    func endingCenter(of view: UIView) -> CGPoint
       { return CGPoint(x: view.bounds.midX, y: view.bounds.midY) }
    
-   func startingTransform() -> CGAffineTransform
-      { return self == .done ? CGAffineTransform(scaleX: 0.0, y: 0.0) : CGAffineTransform.identity }
+   func startingTransform() -> CGAffineTransform {
+//      { return (self == .doneVertical) || (self == .doneHorizontal) ? CGAffineTransform(scaleX: 0.0, y: 0.0) : CGAffineTransform.identity }
+      return CGAffineTransform.identity
+   }
 }
 
 
 class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
    
    let duration = 0.5
-   var transition = TransitionType.done  // default transition
+   var transition = TransitionType.horizontal  // default transition
    
    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval { return duration }
    
@@ -53,12 +57,12 @@ class TransitionAnimator: NSObject, UIViewControllerAnimatedTransitioning {
                                    toView.center = self.transition.endingCenter(of: toView) },
                      completion: { _ in transitionContext.completeTransition(true) } )
       
-      //      let round = CABasicAnimation(keyPath: "cornerRadius")
-      //      round.fromValue = 20.0/xScaleFactor
-      //      round.toValue = 0.0
-      //      round.duration = duration / 2
-      //      toView.layer.add(round, forKey: nil)
-      //      toView.layer.cornerRadius = 0.0
+      let round = CABasicAnimation(keyPath: "cornerRadius")
+      round.fromValue = 5.0
+      round.toValue = 0.0
+      round.duration = duration / 2
+      toView.layer.add(round, forKey: nil)
+      toView.layer.cornerRadius = 0.0
       
    }
 }
