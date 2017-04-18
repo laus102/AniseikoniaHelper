@@ -15,13 +15,12 @@ protocol VerticalTestViewControllerDelegate: class {
 
 class VerticalTestViewController: UIViewController {
     
-    @IBOutlet weak var scaleReadOutLabel: PillLabel!
+    
+    @IBOutlet weak var leftEyeScaleReadOutLabel: PillLabel!
+    @IBOutlet weak var rightEyeScaleReadOutLabel: PillLabel!
+    
     @IBOutlet weak var scaleAdjustSlider: UISlider!
-    
-    @IBOutlet weak var orientationToggleSwitch: UISwitch!
-    var orientationState: DiagramDirection = .right // declared in UIExtensions.swift
-    @IBOutlet weak var orientationReadOutLabel: UILabel!
-    
+        
     @IBOutlet weak var testDoneButton: CircleButton!
     @IBOutlet weak var toHorizontalTestButton: PillButton!
     
@@ -36,17 +35,20 @@ class VerticalTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        leftDiagramComponentView.fillColor = UIColor.iEyeGreen
-        rightDiagramComponentView.fillColor = UIColor.iEyeRed
+        leftDiagramComponentView.fillColor = UIColor.iEyeRed
+        rightDiagramComponentView.fillColor = UIColor.iEyeGreen
         leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         leftDiagramCenterXConstraint.constant = 0.5
         rightDiagramCenterXConstraint.constant = 0.5
         leftDiagramComponentView.transform = CGAffineTransform(scaleX: -1, y: 1) // reflect the left diagram across the Y-axis
         
-        scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
-        scaleReadOutLabel.layer.borderWidth = 1.5
-        scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat(M_PI_2)))
+        rightEyeScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
+        leftEyeScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
+        rightEyeScaleReadOutLabel.layer.borderWidth = 1.5
+        leftEyeScaleReadOutLabel.layer.borderWidth = 1.5
+        
+        scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat(Double.pi / 2)))
         
         toHorizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
         toHorizontalTestButton.layer.borderWidth = 1.5
@@ -69,35 +71,32 @@ class VerticalTestViewController: UIViewController {
     
     // Navigation
     
-    @IBAction func toHorizontalTestButtonPressed(_ sender: Any) {
-//        let horizontalTestVC = storyboard!.instantiateViewController(withIdentifier: "HorizontalTestViewController") as! HorizontalTestViewController
-//        present(horizontalTestVC, animated: true, completion: nil)
-        delegate?.toHorizontalButtonPressed(inVerticalVC: self)
-    }
-    
-    @IBAction func testDoneButtonPressed(_ sender: Any) {
-//        let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
-//        present(testSelectVC, animated: true, completion: nil)
-        delegate?.toDoneButtonPressed(inVerticalVC: self)
-    }
+    @IBAction func toHorizontalTestButtonPressed(_ sender: Any) { delegate?.toHorizontalButtonPressed(inVerticalVC: self) }
+    @IBAction func testDoneButtonPressed(_ sender: Any) { delegate?.toDoneButtonPressed(inVerticalVC: self) }
     
     // Scale
     
     @IBAction func scaleAdjustSliderValueChanged(_ sender: UISlider) {
-        let roundedValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
-        scaleReadOutLabel.text = "\(roundedValue)"
+        let roundedScaleValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         
-        switch orientationState {
-            case DiagramDirection.left: leftDiagramComponentView.adjust(scale: CGFloat(sender.value), diagramOrientation: orientationState)
-            case DiagramDirection.right: rightDiagramComponentView.adjust(scale: CGFloat(sender.value), diagramOrientation: orientationState)
-          default: print("Unrecognizable DiagramDirection")
+        // Adjust the scale of the diagrams
+        
+        let percentage = CGFloat(1.0 - abs(roundedScaleValue))
+        
+        if (roundedScaleValue >= 0.0) {
+            rightDiagramComponentView.adjust(scale: percentage, diagramOrientation: DiagramDirection.right)
+            // Adjust Read Out Labels
+            rightEyeScaleReadOutLabel.text = "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
+            leftEyeScaleReadOutLabel.text = "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
         }
+        
+        if (roundedScaleValue <= 0.0) {
+            leftDiagramComponentView.adjust(scale: percentage, diagramOrientation: DiagramDirection.left)
+            // Adjust Read Out Labels
+            leftEyeScaleReadOutLabel.text = "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
+            rightEyeScaleReadOutLabel.text = "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
+        }
+        
     }
     
-    @IBAction func orientationToggleDidSwitch(_ sender: Any) {
-        orientationReadOutLabel.text = orientationState.next.rawValue
-        orientationState = orientationState.next
-    }
-    
-
 }
