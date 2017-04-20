@@ -15,7 +15,9 @@ protocol HorizontalTestViewControllerDelegate: class {
 
 class HorizontalTestViewController: UIViewController {
     
-    @IBOutlet weak var scaleReadOutLabel: PillLabel!
+    @IBOutlet weak var topScaleReadOutLabel: PillLabel!
+    @IBOutlet weak var bottomScaleReadOutLabel: PillLabel!
+    
     @IBOutlet weak var scaleAdjustSlider: UISlider!
     
     @IBOutlet weak var testDoneButton: CircleButton!
@@ -43,8 +45,10 @@ class HorizontalTestViewController: UIViewController {
         
         bottomDiagramComponentView.transform = CGAffineTransform(scaleX: 1, y: -1) // reflect the bottom diagram across the Y-axis
         
-        scaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
-        scaleReadOutLabel.layer.borderWidth = 1.5
+        topScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
+        topScaleReadOutLabel.layer.borderWidth = 1.5
+        bottomScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
+        bottomScaleReadOutLabel.layer.borderWidth = 1.5
         
         scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi / 2))
                 
@@ -70,26 +74,27 @@ class HorizontalTestViewController: UIViewController {
     
     // Navigation
     
-    @IBAction func toVerticalTestButtonPressed(_ sender: Any) {
-//        let verticalTestVC = storyboard!.instantiateViewController(withIdentifier: "VerticalTestViewController") as! VerticalTestViewController
-//        present(verticalTestVC, animated: true, completion: nil)
-        delegate?.toVerticalButtonPressed(inHorizontalVC: self)
-    }
-    
-    @IBAction func testDoneButtonPressed(_ sender: Any) {
-//        let testSelectVC = storyboard!.instantiateViewController(withIdentifier: "TestSelectViewController") as! TestSelectViewController
-//        present(testSelectVC, animated: true, completion: nil)
-        delegate?.toDoneButtonPressed(inHorizontalVC: self)
-    }
+    @IBAction func toVerticalTestButtonPressed(_ sender: Any) { delegate?.toVerticalButtonPressed(inHorizontalVC: self) }
+    @IBAction func testDoneButtonPressed(_ sender: Any) { delegate?.toDoneButtonPressed(inHorizontalVC: self) }
     
     // Scale
     
     @IBAction func scaleAdjustmentSliderValueChanged(_ sender: UISlider) {
-        let roundedValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
-        scaleReadOutLabel.text = "\(roundedValue)"
+        let roundedScaleValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         
-        if (roundedValue >= 0.0) { topDiagramComponentView.adjust(scale: CGFloat(1.0 - roundedValue), diagramOrientation: DiagramDirection.top) }
-        if (roundedValue <= 0.0) { bottomDiagramComponentView.adjust(scale: CGFloat(1.0 - abs(roundedValue)), diagramOrientation: DiagramDirection.bottom) }
+        // Adjust scale of the diagrams
+        let percentage = CGFloat(1.0 - abs(roundedScaleValue))
+        if (roundedScaleValue >= 0.0) { topDiagramComponentView.adjust(scale: CGFloat(1.0 - roundedScaleValue), diagramOrientation: DiagramDirection.top) }
+        if (roundedScaleValue <= 0.0) { bottomDiagramComponentView.adjust(scale: CGFloat(1.0 - abs(roundedScaleValue)), diagramOrientation: DiagramDirection.bottom) }
+        
+        // Adjust the read out labels
+        topScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%" : "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
+        bottomScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%" : "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
+        
+        if (roundedScaleValue == 0.0) {
+            topScaleReadOutLabel.text = "100%"
+            bottomScaleReadOutLabel.text = "100%"
+        }
         
     }
     

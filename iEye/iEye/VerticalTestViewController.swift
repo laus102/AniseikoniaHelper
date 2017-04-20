@@ -80,23 +80,18 @@ class VerticalTestViewController: UIViewController {
         let roundedScaleValue = (sender.value * pow(10.0, 2.0)).rounded() / pow(10.0, 2.0)
         
         // Adjust the scale of the diagrams
-        
         let percentage = CGFloat(1.0 - abs(roundedScaleValue))
+        if (roundedScaleValue >= 0.0) { rightDiagramComponentView.adjust(scale: percentage, diagramOrientation: DiagramDirection.right) }
+        if (roundedScaleValue <= 0.0) { leftDiagramComponentView.adjust(scale: percentage, diagramOrientation: DiagramDirection.left) }
         
-        if (roundedScaleValue >= 0.0) {
-            rightDiagramComponentView.adjust(scale: percentage, diagramOrientation: DiagramDirection.right)
-            // Adjust Read Out Labels
-            rightEyeScaleReadOutLabel.text = "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
-            leftEyeScaleReadOutLabel.text = "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
+        // Adjust the read out labels
+        leftEyeScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%" : "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
+        rightEyeScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%" : "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
+        
+        if (roundedScaleValue == 0.0) {
+            leftEyeScaleReadOutLabel.text = "100%"
+            rightEyeScaleReadOutLabel.text = "100%"
         }
-        
-        if (roundedScaleValue <= 0.0) {
-            leftDiagramComponentView.adjust(scale: percentage, diagramOrientation: DiagramDirection.left)
-            // Adjust Read Out Labels
-            leftEyeScaleReadOutLabel.text = "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
-            rightEyeScaleReadOutLabel.text = "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
-        }
-        
     }
     
 }
