@@ -35,8 +35,8 @@ class VerticalTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        leftDiagramComponentView.fillColor = UIColor.iEyeRed
-        rightDiagramComponentView.fillColor = UIColor.iEyeGreen
+        leftDiagramComponentView.fillColor = UIColor.iEyeGreen
+        rightDiagramComponentView.fillColor = UIColor.iEyeRed
         leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         leftDiagramCenterXConstraint.constant = 0.5

@@ -88,6 +88,9 @@ class HorizontalTestViewController: UIViewController {
         if (roundedScaleValue <= 0.0) { bottomDiagramComponentView.adjust(scale: CGFloat(1.0 - abs(roundedScaleValue)), diagramOrientation: DiagramDirection.bottom) }
         
         // Adjust the read out labels
+//        topScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%" : "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
+//        bottomScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%" : "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
+        
         topScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%" : "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
         bottomScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%" : "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
         
