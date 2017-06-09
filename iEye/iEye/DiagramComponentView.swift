@@ -43,8 +43,8 @@ struct DiagramMeasurements {
 
 
 class DiagramComponentView: UIView {
-    
-    var fillColor: UIColor = UIColor.black { didSet { setNeedsDisplay() } }
+
+    var fillColor: UIColor = UIColor.clear { didSet { setNeedsDisplay() } }
     
     private func addOutlineLines(context: CGContext, measurements: DiagramMeasurements) -> () {
         if bounds.maxY > bounds.maxX { // Vertical Diagram
@@ -137,7 +137,8 @@ class DiagramComponentView: UIView {
     override func draw(_ rect: CGRect) {
         
         clipsToBounds = true
-        UIColor.white.setFill()
+
+        UIColor.clear.setFill()
         UIRectFill(rect)
         
         let lineWidth: CGFloat = 3.0

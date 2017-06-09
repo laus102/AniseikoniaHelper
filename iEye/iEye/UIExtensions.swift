@@ -36,8 +36,8 @@ extension UIColor {
     convenience init(r: Int, g: Int, b: Int, a: CGFloat) {
         self.init(red: CGFloat(rgbValue: r), green: CGFloat(rgbValue: g), blue: CGFloat(rgbValue: b), alpha: a)
     }
-    open class var iEyeGreen: UIColor { return UIColor(r: 134, g: 196, b: 131, a: 1.0) }
-    open class var iEyeRed: UIColor { return UIColor(r: 217, g: 108, b: 103, a: 1.0) }
+    open class var iEyeGreen: UIColor { return UIColor(r: 142, g: 255, b: 131, a: 1.0) }
+    open class var iEyeRed: UIColor { return UIColor(r: 255, g: 142, b: 103, a: 1.0) }
     open class var uiRed: UIColor { return UIColor(r: 200, g: 32, b: 30, a: 1.0) }
     open class var lightUIRed: UIColor { return UIColor(r: 200, g: 32, b: 30, a: 0.1) }
 }

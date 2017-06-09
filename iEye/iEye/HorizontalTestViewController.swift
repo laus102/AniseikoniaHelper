@@ -30,19 +30,18 @@ class HorizontalTestViewController: UIViewController {
     @IBOutlet weak var bottomDiagramCenterXConstraint: NSLayoutConstraint!
     
     weak var delegate: HorizontalTestViewControllerDelegate!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        bottomDiagramComponentView.backgroundColor = UIColor.clear
+        topDiagramComponentView.backgroundColor = UIColor.clear
         bottomDiagramComponentView.fillColor = UIColor.iEyeRed
         topDiagramComponentView.fillColor = UIColor.iEyeGreen
-        
         bottomDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
         topDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
-        
         bottomDiagramCenterXConstraint.constant = 0.5
         topDiagramCenterXConstraint.constant = 0.5
-        
         bottomDiagramComponentView.transform = CGAffineTransform(scaleX: 1, y: -1) // reflect the bottom diagram across the Y-axis
         
         topScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor

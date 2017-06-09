@@ -35,6 +35,7 @@ class TestSelectViewController: UIViewController {
         temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(11, 4))
         splashTitleLabel.attributedText = temp
         splashScreen.center = view.center
+        splashScreen.backgroundColor = UIColor(r: 255, g: 245, b: 255, a: 1.0)
         DispatchQueue.main.async { UIView.animate(withDuration: 3.0, animations: { self.view.addSubview(self.splashScreen) })
         }
         
