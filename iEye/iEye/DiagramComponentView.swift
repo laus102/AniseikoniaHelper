@@ -168,7 +168,7 @@ class DiagramComponentView: UIView {
         UIColor.clear.setFill()
         UIRectFill(rect)
         
-        let lineWidth: CGFloat = 3.0
+        let lineWidth: CGFloat = 2.5
         let diagramMeasurements = DiagramMeasurements(bounds: bounds.insetBy(dx: lineWidth/2.0, dy: lineWidth/2.0))
         
         if let context = UIGraphicsGetCurrentContext() {

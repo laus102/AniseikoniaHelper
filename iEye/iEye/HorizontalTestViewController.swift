@@ -28,9 +28,9 @@ class HorizontalTestViewController: UIViewController {
     @IBOutlet weak var topDiagramCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomDiagramCenterYConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var staticCircle: UIView!
+
     weak var delegate: HorizontalTestViewControllerDelegate!
-    
-    let diagramCenterOffset = CGFloat(1.5)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,6 @@ class HorizontalTestViewController: UIViewController {
 
         bottomDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
         topDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
-
-//        bottomDiagramCenterYConstraint.constant = diagramCenterOffset
-//        topDiagramCenterYConstraint.constant = -diagramCenterOffset
 
         bottomDiagramComponentView.transform = CGAffineTransform(scaleX: 1, y: -1) // reflect the bottom diagram across the X-axis
         
@@ -63,15 +60,16 @@ class HorizontalTestViewController: UIViewController {
         verticalTestButton.contentEdgeInsets.bottom = 15.0
         verticalTestButton.contentEdgeInsets.left = 15.0
         verticalTestButton.contentEdgeInsets.right = 15.0
+        
+        staticCircle.layer.cornerRadius = staticCircle.frame.size.width/2.0
+        staticCircle.clipsToBounds = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.resetSlider()
     }
-    
-    // MARK: IBActions
-    
+
     // Navigation
     
     @IBAction func toVerticalTestButtonPressed(_ sender: Any) { delegate?.toVerticalButtonPressed(inHorizontalVC: self) }

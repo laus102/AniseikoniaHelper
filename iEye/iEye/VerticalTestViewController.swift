@@ -28,9 +28,9 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var leftDiagramCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightDiagramCenterXConstraint: NSLayoutConstraint!
 
-    weak var delegate: VerticalTestViewControllerDelegate!
+    @IBOutlet weak var staticCircle: UIView!
 
-    let diagramCenterOffset = CGFloat(1.5)
+    weak var delegate: VerticalTestViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +42,6 @@ class VerticalTestViewController: UIViewController {
         
         leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-        
-//        leftDiagramCenterXConstraint.constant = -diagramCenterOffset
-//        rightDiagramCenterXConstraint.constant = diagramCenterOffset
         
         leftDiagramComponentView.transform = CGAffineTransform(scaleX: -1, y: 1) // reflect the left diagram across the Y-axis
         
@@ -63,6 +60,9 @@ class VerticalTestViewController: UIViewController {
         toHorizontalTestButton.contentEdgeInsets.bottom = 15.0
         toHorizontalTestButton.contentEdgeInsets.left = 15.0
         toHorizontalTestButton.contentEdgeInsets.right = 15.0
+
+        staticCircle.layer.cornerRadius = staticCircle.frame.size.width/2.0
+        staticCircle.clipsToBounds = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
