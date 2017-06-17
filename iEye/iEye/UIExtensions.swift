@@ -40,6 +40,7 @@ extension UIColor {
     open class var iEyeRed: UIColor { return UIColor(r: 255, g: 142, b: 103, a: 1.0) }
     open class var uiRed: UIColor { return UIColor(r: 200, g: 32, b: 30, a: 1.0) }
     open class var lightUIRed: UIColor { return UIColor(r: 200, g: 32, b: 30, a: 0.1) }
+    open class var iEyeLightGray: UIColor { return UIColor(white: 0.667, alpha: 0.5) }
 }
 
 

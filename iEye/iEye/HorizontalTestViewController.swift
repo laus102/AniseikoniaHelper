@@ -19,8 +19,7 @@ class HorizontalTestViewController: UIViewController {
     @IBOutlet weak var bottomScaleReadOutLabel: PillLabel!
     
     @IBOutlet weak var scaleAdjustSlider: UISlider!
-    
-    @IBOutlet weak var testDoneButton: CircleButton!
+
     @IBOutlet weak var verticalTestButton: PillButton!
     
     @IBOutlet weak var topDiagramComponentView: DiagramComponentView!
@@ -50,32 +49,29 @@ class HorizontalTestViewController: UIViewController {
         bottomScaleReadOutLabel.layer.borderWidth = 1.5
         
         scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi / 2))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetSlider))
+        scaleAdjustSlider.addGestureRecognizer(gestureRecognizer)
                 
-        verticalTestButton.layer.borderColor = UIColor.lightGray.cgColor
+        verticalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
         verticalTestButton.layer.borderWidth = 1.5
         verticalTestButton.contentEdgeInsets.top = 15.0
         verticalTestButton.contentEdgeInsets.bottom = 15.0
         verticalTestButton.contentEdgeInsets.left = 15.0
         verticalTestButton.contentEdgeInsets.right = 15.0
-    
-        testDoneButton.layer.borderColor = UIColor.lightGray.cgColor
-        testDoneButton.layer.borderWidth = 1.5
-        testDoneButton.contentEdgeInsets.top = 30.0
-        testDoneButton.contentEdgeInsets.bottom = 30.0
-        
-        let offset = (testDoneButton.frame.width - testDoneButton.frame.height)
-        testDoneButton.contentEdgeInsets.left = 30.0 - offset
-        testDoneButton.contentEdgeInsets.right = 30.0 - offset
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.resetSlider()
+    }
     
     // MARK: IBActions
     
     // Navigation
     
     @IBAction func toVerticalTestButtonPressed(_ sender: Any) { delegate?.toVerticalButtonPressed(inHorizontalVC: self) }
-    @IBAction func testDoneButtonPressed(_ sender: Any) { delegate?.toDoneButtonPressed(inHorizontalVC: self) }
     
+
     // Scale
     
     @IBAction func scaleAdjustmentSliderValueChanged(_ sender: UISlider) {
@@ -94,7 +90,16 @@ class HorizontalTestViewController: UIViewController {
             topScaleReadOutLabel.text = "100%"
             bottomScaleReadOutLabel.text = "100%"
         }
-        
+    }
+    
+    func resetSlider() {
+        scaleAdjustSlider.value = 0.0
+
+        topDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.top)
+        topScaleReadOutLabel.text = "100%"
+
+        bottomDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.bottom)
+        bottomScaleReadOutLabel.text = "100%"
     }
     
 }

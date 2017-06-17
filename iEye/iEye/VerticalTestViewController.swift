@@ -14,14 +14,12 @@ protocol VerticalTestViewControllerDelegate: class {
 }
 
 class VerticalTestViewController: UIViewController {
-    
-    
+
     @IBOutlet weak var leftEyeScaleReadOutLabel: PillLabel!
     @IBOutlet weak var rightEyeScaleReadOutLabel: PillLabel!
     
     @IBOutlet weak var scaleAdjustSlider: UISlider!
-        
-    @IBOutlet weak var testDoneButton: CircleButton!
+
     @IBOutlet weak var toHorizontalTestButton: PillButton!
     
     @IBOutlet weak var leftDiagramComponentView: DiagramComponentView!
@@ -45,28 +43,26 @@ class VerticalTestViewController: UIViewController {
         rightDiagramCenterXConstraint.constant = 0.5
         leftDiagramComponentView.transform = CGAffineTransform(scaleX: -1, y: 1) // reflect the left diagram across the Y-axis
         
-        rightEyeScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
-        leftEyeScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
+        rightEyeScaleReadOutLabel.layer.borderColor = UIColor.iEyeLightGray.cgColor
+        leftEyeScaleReadOutLabel.layer.borderColor = UIColor.iEyeLightGray.cgColor
         rightEyeScaleReadOutLabel.layer.borderWidth = 1.5
         leftEyeScaleReadOutLabel.layer.borderWidth = 1.5
-        
+
         scaleAdjustSlider.transform = CGAffineTransform(rotationAngle: -(CGFloat(Double.pi / 2)))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetSlider))
+        scaleAdjustSlider.addGestureRecognizer(gestureRecognizer)
         
-        toHorizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
+        toHorizontalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
         toHorizontalTestButton.layer.borderWidth = 1.5
         toHorizontalTestButton.contentEdgeInsets.top = 15.0
         toHorizontalTestButton.contentEdgeInsets.bottom = 15.0
         toHorizontalTestButton.contentEdgeInsets.left = 15.0
         toHorizontalTestButton.contentEdgeInsets.right = 15.0
-        
-        testDoneButton.layer.borderColor = UIColor.lightGray.cgColor
-        testDoneButton.layer.borderWidth = 1.5
-        testDoneButton.contentEdgeInsets.top = 30.0
-        testDoneButton.contentEdgeInsets.bottom = 30.0
-        
-        let offset = (testDoneButton.frame.width - testDoneButton.frame.height)
-        testDoneButton.contentEdgeInsets.left = 30.0 - offset
-        testDoneButton.contentEdgeInsets.right = 30.0 - offset
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.resetSlider()
     }
     
     // MARK: - IBActions
@@ -74,8 +70,8 @@ class VerticalTestViewController: UIViewController {
     // Navigation
     
     @IBAction func toHorizontalTestButtonPressed(_ sender: Any) { delegate?.toHorizontalButtonPressed(inVerticalVC: self) }
-    @IBAction func testDoneButtonPressed(_ sender: Any) { delegate?.toDoneButtonPressed(inVerticalVC: self) }
-    
+
+
     // Scale
     
     @IBAction func scaleAdjustSliderValueChanged(_ sender: UISlider) {
@@ -96,4 +92,13 @@ class VerticalTestViewController: UIViewController {
         }
     }
     
+    func resetSlider() {
+        scaleAdjustSlider.value = 0.0
+
+        leftDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.left)
+        leftEyeScaleReadOutLabel.text = "100%"
+
+        rightDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.right)
+        rightEyeScaleReadOutLabel.text = "100%"
+    }
 }

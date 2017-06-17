@@ -40,9 +40,9 @@ class TestSelectViewController: UIViewController {
         }
         
         // Test Select VC
-        verticalTestButton.layer.borderColor = UIColor.lightGray.cgColor
+        verticalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
         verticalTestButton.layer.borderWidth = 1.0
-        horizontalTestButton.layer.borderColor = UIColor.lightGray.cgColor
+        horizontalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
         horizontalTestButton.layer.borderWidth = 1.0
     }
     
