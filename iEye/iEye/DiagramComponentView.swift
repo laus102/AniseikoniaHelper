@@ -8,10 +8,8 @@
 
 import UIKit
 
-
-
 struct DiagramMeasurements {
-    
+
     let bounds: CGRect
     var boundsTopLeft: CGPoint { return CGPoint(x: bounds.minX, y: bounds.minY) }
     var boundsMiddleLeft: CGPoint { return CGPoint(x: bounds.minX, y: bounds.maxY/2.0) }
@@ -19,12 +17,16 @@ struct DiagramMeasurements {
     var boundsBottomLeft: CGPoint { return CGPoint(x: bounds.minX, y: bounds.maxY) }
     var boundsTopRight: CGPoint { return CGPoint(x: bounds.maxX, y: bounds.minY) }
     var boundsBottomRight: CGPoint { return CGPoint(x: bounds.maxX, y: bounds.maxY) }
-    
+
+    var isVertical: Bool {
+        get { return bounds.maxY > bounds.maxX }
+    }
+
     var whole: (x: CGFloat, y: CGFloat) { return (x: bounds.maxX, y: bounds.maxY) }
     var half: (x: CGFloat, y: CGFloat) { return (x: bounds.maxX/2.0, y: bounds.maxY/2.0) }
 
     var big: (hash: CGFloat, half: CGFloat, hashSpacing: CGFloat) {
-        return bounds.maxY > bounds.maxX
+        return isVertical
             // Vertical Diagram
             ? (hash: bounds.maxX * 0.75, half: half.y * 0.60, hashSpacing: (half.y * 0.60)/4.0)
             // Horizontal Diagram
@@ -32,7 +34,7 @@ struct DiagramMeasurements {
     }
     
     var small: (hash: CGFloat, half: CGFloat, hashSpacing: CGFloat) {
-        return bounds.maxY > bounds.maxX
+        return isVertical
             // Vertical Diagram
             ? (hash: whole.x / 8.0, half: half.y - big.half, hashSpacing: (half.y - big.half)/6.0)
             // Horizontal Diagram
@@ -40,21 +42,21 @@ struct DiagramMeasurements {
     }
 }
 
-
-
 class DiagramComponentView: UIView {
 
     var fillColor: UIColor = UIColor.clear { didSet { setNeedsDisplay() } }
     
+    var isVertical: Bool { get { return bounds.maxY > bounds.maxX } }
+    
     private func addOutlineLines(context: CGContext, measurements: DiagramMeasurements) -> () {
-        if bounds.maxY > bounds.maxX { // Vertical Diagram
+        if isVertical {
             context.move(to: measurements.boundsTopRight)
             context.addLine(to: measurements.boundsTopLeft)
             context.addLine(to: measurements.boundsBottomLeft)
             context.addLine(to: measurements.boundsBottomRight)
         }
             
-        else { // Horizontal Diagram
+        else {
             context.move(to: measurements.boundsTopLeft)
             context.addLine(to: measurements.boundsBottomLeft)
             context.addLine(to: measurements.boundsBottomRight)
@@ -66,10 +68,10 @@ class DiagramComponentView: UIView {
     
     private func addBigHashLines(context: CGContext, measurements: DiagramMeasurements) -> () {
         
-        var topStartPoint = bounds.maxY > bounds.maxX ? measurements.boundsTopLeft : measurements.boundsBottomLeft
-        var bottomStartPoint = bounds.maxY > bounds.maxX ? measurements.boundsBottomLeft : measurements.boundsBottomRight
+        var topStartPoint = isVertical ? measurements.boundsTopLeft : measurements.boundsBottomLeft
+        var bottomStartPoint = isVertical ? measurements.boundsBottomLeft : measurements.boundsBottomRight
         
-        if bounds.maxY > bounds.maxX { // Vertical Diagram
+        if isVertical {
             for _ in 0..<4 {
                 topStartPoint = CGPoint(x: topStartPoint.x, y: topStartPoint.y + measurements.big.hashSpacing)
                 bottomStartPoint = CGPoint(x: bottomStartPoint.x, y: bottomStartPoint.y - measurements.big.hashSpacing)
@@ -80,7 +82,7 @@ class DiagramComponentView: UIView {
             }
         }
             
-        else { // Horizontal Diagram
+        else {
             for _ in 0..<4 {
                 topStartPoint = CGPoint(x: topStartPoint.x + measurements.big.hashSpacing, y: topStartPoint.y)
                 bottomStartPoint = CGPoint(x: bottomStartPoint.x - measurements.big.hashSpacing, y: bottomStartPoint.y)
@@ -95,24 +97,49 @@ class DiagramComponentView: UIView {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     private func addSmallHashLines(context: CGContext, measurements: DiagramMeasurements) -> () {
+
+        var topStartPoint = isVertical ? measurements.boundsMiddleLeft : measurements.boundsMiddleBottom
+        var bottomStartPoint = isVertical ? measurements.boundsMiddleLeft : measurements.boundsMiddleBottom
         
-        var topStartPoint = bounds.maxY > bounds.maxX ? measurements.boundsMiddleLeft : measurements.boundsMiddleBottom
-        var bottomStartPoint = bounds.maxY > bounds.maxX ? measurements.boundsMiddleLeft : measurements.boundsMiddleBottom
+        var smallTopStartPoint = topStartPoint
+        var smallBottomStartPoint = bottomStartPoint
         
-        if bounds.maxY > bounds.maxX { // Vertical Diagram
-            for _ in 0..<4 {
+        if isVertical {
+            for _ in 0..<5 {
+                smallTopStartPoint = CGPoint(x: topStartPoint.x, y: topStartPoint.y - 0.5*measurements.small.hashSpacing)
+                smallBottomStartPoint = CGPoint(x: bottomStartPoint.x, y: bottomStartPoint.y + 0.5*measurements.small.hashSpacing)
+                
                 topStartPoint = CGPoint(x: topStartPoint.x, y: topStartPoint.y - measurements.small.hashSpacing)
                 bottomStartPoint = CGPoint(x: bottomStartPoint.x, y: bottomStartPoint.y + measurements.small.hashSpacing)
+                
+                // Small small hash
+                context.move(to: smallTopStartPoint)
+                context.addLine(to: CGPoint(x: smallTopStartPoint.x + 0.5*measurements.small.hash, y: smallTopStartPoint.y))
+                context.move(to: smallBottomStartPoint)
+                context.addLine(to: CGPoint(x: smallBottomStartPoint.x + 0.5*measurements.small.hash, y: smallBottomStartPoint.y))
+                
+                // Regular small hash
                 context.move(to: topStartPoint)
                 context.addLine(to: CGPoint(x: topStartPoint.x + measurements.small.hash, y: topStartPoint.y))
                 context.move(to: bottomStartPoint)
                 context.addLine(to: CGPoint(x: bottomStartPoint.x + measurements.small.hash, y: bottomStartPoint.y))
             }
         }
-        else { // Horizontal Diagram
-            for _ in 0..<4 {
+        else {
+            for _ in 0..<5 {
+                smallTopStartPoint = CGPoint(x: topStartPoint.x - 0.5*measurements.small.hashSpacing, y: topStartPoint.y)
+                smallBottomStartPoint = CGPoint(x: bottomStartPoint.x + 0.5*measurements.small.hashSpacing, y: bottomStartPoint.y)
+                
                 topStartPoint = CGPoint(x: topStartPoint.x - measurements.small.hashSpacing, y: topStartPoint.y)
                 bottomStartPoint = CGPoint(x: bottomStartPoint.x + measurements.small.hashSpacing, y: bottomStartPoint.y)
+                
+                // Small small hash
+                context.move(to: smallTopStartPoint)
+                context.addLine(to: CGPoint(x: smallTopStartPoint.x, y: smallTopStartPoint.y - 0.5*measurements.small.hash))
+                context.move(to: smallBottomStartPoint)
+                context.addLine(to: CGPoint(x: smallBottomStartPoint.x, y: smallBottomStartPoint.y - 0.5*measurements.small.hash))
+                
+                // Regular small hash
                 context.move(to: topStartPoint)
                 context.addLine(to: CGPoint(x: topStartPoint.x, y: topStartPoint.y - measurements.small.hash))
                 context.move(to: bottomStartPoint)
@@ -126,7 +153,7 @@ class DiagramComponentView: UIView {
     private func generateCenterCircle(context: CGContext, measurements: DiagramMeasurements) -> CGRect {
         fillColor.setFill()
         let circleDiameter = measurements.small.hashSpacing / 2.0
-        let origin =  bounds.maxY > bounds.maxX
+        let origin =  isVertical
             ? CGPoint(x: measurements.boundsMiddleLeft.x - circleDiameter/2.0, y: measurements.boundsMiddleLeft.y - circleDiameter/2.0)
             : CGPoint(x: measurements.boundsMiddleBottom.x - circleDiameter/2.0, y: measurements.boundsMiddleBottom.y - circleDiameter/2.0)
         return CGRect(origin: origin, size: CGSize(width: circleDiameter, height: circleDiameter))
@@ -155,7 +182,7 @@ class DiagramComponentView: UIView {
             // Draw it
             context.strokePath()
             // Add the circle
-            context.fillEllipse(in: generateCenterCircle(context: context, measurements: diagramMeasurements))
+//            context.fillEllipse(in: generateCenterCircle(context: context, measurements: diagramMeasurements))
         }
     }
     
@@ -169,5 +196,4 @@ class DiagramComponentView: UIView {
             case .top: transform = CGAffineTransform(scaleX: scale, y: scale)
         }
     }
-    
 }

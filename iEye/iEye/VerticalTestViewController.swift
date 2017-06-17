@@ -29,6 +29,8 @@ class VerticalTestViewController: UIViewController {
     @IBOutlet weak var rightDiagramCenterXConstraint: NSLayoutConstraint!
 
     weak var delegate: VerticalTestViewControllerDelegate!
+
+    let diagramCenterOffset = CGFloat(1.5)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +39,13 @@ class VerticalTestViewController: UIViewController {
         rightDiagramComponentView.backgroundColor = UIColor.clear
         leftDiagramComponentView.fillColor = UIColor.iEyeRed
         rightDiagramComponentView.fillColor = UIColor.iEyeGreen
+        
         leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
-        leftDiagramCenterXConstraint.constant = 0.5
-        rightDiagramCenterXConstraint.constant = 0.5
+        
+//        leftDiagramCenterXConstraint.constant = -diagramCenterOffset
+//        rightDiagramCenterXConstraint.constant = diagramCenterOffset
+        
         leftDiagramComponentView.transform = CGAffineTransform(scaleX: -1, y: 1) // reflect the left diagram across the Y-axis
         
         rightEyeScaleReadOutLabel.layer.borderColor = UIColor.iEyeLightGray.cgColor
@@ -59,14 +64,12 @@ class VerticalTestViewController: UIViewController {
         toHorizontalTestButton.contentEdgeInsets.left = 15.0
         toHorizontalTestButton.contentEdgeInsets.right = 15.0
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.resetSlider()
     }
-    
-    // MARK: - IBActions
-    
+
     // Navigation
     
     @IBAction func toHorizontalTestButtonPressed(_ sender: Any) { delegate?.toHorizontalButtonPressed(inVerticalVC: self) }

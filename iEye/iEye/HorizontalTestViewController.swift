@@ -25,10 +25,12 @@ class HorizontalTestViewController: UIViewController {
     @IBOutlet weak var topDiagramComponentView: DiagramComponentView!
     @IBOutlet weak var bottomDiagramComponentView: DiagramComponentView!
     
-    @IBOutlet weak var topDiagramCenterXConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomDiagramCenterXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topDiagramCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomDiagramCenterYConstraint: NSLayoutConstraint!
     
     weak var delegate: HorizontalTestViewControllerDelegate!
+    
+    let diagramCenterOffset = CGFloat(1.5)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +39,14 @@ class HorizontalTestViewController: UIViewController {
         topDiagramComponentView.backgroundColor = UIColor.clear
         bottomDiagramComponentView.fillColor = UIColor.iEyeRed
         topDiagramComponentView.fillColor = UIColor.iEyeGreen
+
         bottomDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
         topDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
-        bottomDiagramCenterXConstraint.constant = 0.5
-        topDiagramCenterXConstraint.constant = 0.5
-        bottomDiagramComponentView.transform = CGAffineTransform(scaleX: 1, y: -1) // reflect the bottom diagram across the Y-axis
+
+//        bottomDiagramCenterYConstraint.constant = diagramCenterOffset
+//        topDiagramCenterYConstraint.constant = -diagramCenterOffset
+
+        bottomDiagramComponentView.transform = CGAffineTransform(scaleX: 1, y: -1) // reflect the bottom diagram across the X-axis
         
         topScaleReadOutLabel.layer.borderColor = UIColor.lightGray.cgColor
         topScaleReadOutLabel.layer.borderWidth = 1.5
@@ -70,7 +75,6 @@ class HorizontalTestViewController: UIViewController {
     // Navigation
     
     @IBAction func toVerticalTestButtonPressed(_ sender: Any) { delegate?.toVerticalButtonPressed(inHorizontalVC: self) }
-    
 
     // Scale
     
