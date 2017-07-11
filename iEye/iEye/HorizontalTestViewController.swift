@@ -10,7 +10,6 @@ import UIKit
 
 protocol HorizontalTestViewControllerDelegate: class {
     func toVerticalButtonPressed(inHorizontalVC sender: HorizontalTestViewController)
-    func toDoneButtonPressed(inHorizontalVC sender: HorizontalTestViewController)
 }
 
 class HorizontalTestViewController: UIViewController {

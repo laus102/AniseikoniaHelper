@@ -10,10 +10,14 @@ import UIKit
 
 protocol VerticalTestViewControllerDelegate: class {
     func toHorizontalButtonPressed(inVerticalVC sender: VerticalTestViewController)
-    func toDoneButtonPressed(inVerticalVC sender: VerticalTestViewController)
 }
 
 class VerticalTestViewController: UIViewController {
+
+    // Splash Screen
+    @IBOutlet var splashView: UIView!
+    @IBOutlet weak var splashTitleLabel: UILabel!
+    @IBOutlet weak var splashDescriptionLabel: UILabel!
 
     @IBOutlet weak var leftEyeScaleReadOutLabel: PillLabel!
     @IBOutlet weak var rightEyeScaleReadOutLabel: PillLabel!
@@ -34,6 +38,16 @@ class VerticalTestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Splash Page View
+        let temp = NSMutableAttributedString(string: "Welcome to Aniseikonia Helper")
+        temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(11, 18))
+        temp.addAttributes([ NSFontAttributeName: UIFont.systemFont(ofSize: 70) ], range: NSMakeRange(0, temp.mutableString.length))
+
+        splashTitleLabel.attributedText = temp
+        splashView.center = view.center
+        splashView.backgroundColor = UIColor(r: 255, g: 245, b: 255, a: 1.0)
+        DispatchQueue.main.async { UIView.animate(withDuration: 3.0, animations: { self.view.addSubview(self.splashView) }) }
 
         leftDiagramComponentView.backgroundColor = UIColor.clear
         rightDiagramComponentView.backgroundColor = UIColor.clear
@@ -71,7 +85,26 @@ class VerticalTestViewController: UIViewController {
     }
 
     // Navigation
-    
+
+    func displayAndDismissSplashScreenWith(DescriptionFadeIn descriptionFadeIn: TimeInterval, splashFadeOut: TimeInterval, testFadeIn: TimeInterval) {
+
+        let removeSplashScreen = { (value: Bool) in self.splashView.removeFromSuperview() }
+
+        let fadeInVerticalTestView = { (value: Bool) in UIView.animate(withDuration: testFadeIn,
+                                                                     animations: { self.splashView.alpha = 0.0 },
+                                                                     completion: removeSplashScreen) }
+
+        let fadeSplashViewOut = { (value: Bool) in UIView.animate(withDuration: splashFadeOut,
+                                                                  animations: { self.splashTitleLabel.alpha = 0.0
+                                                                    self.splashDescriptionLabel.alpha = 0.0 },
+                                                                  completion: fadeInVerticalTestView) }
+
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: descriptionFadeIn,
+                           animations: { self.splashDescriptionLabel.alpha = 1 },
+                           completion: fadeSplashViewOut) }
+    }
+
     @IBAction func toHorizontalTestButtonPressed(_ sender: Any) { delegate?.toHorizontalButtonPressed(inVerticalVC: self) }
 
 
