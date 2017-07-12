@@ -123,8 +123,8 @@ class VerticalTestViewController: UIViewController {
         rightEyeScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%" : "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%"
         
         if (roundedScaleValue == 0.0) {
-            leftEyeScaleReadOutLabel.text = "100%"
-            rightEyeScaleReadOutLabel.text = "100%"
+            leftEyeScaleReadOutLabel.text = "0%"
+            rightEyeScaleReadOutLabel.text = "0%"
         }
     }
     
@@ -132,9 +132,9 @@ class VerticalTestViewController: UIViewController {
         scaleAdjustSlider.value = 0.0
 
         leftDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.left)
-        leftEyeScaleReadOutLabel.text = "100%"
+        leftEyeScaleReadOutLabel.text = "0%"
 
         rightDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.right)
-        rightEyeScaleReadOutLabel.text = "100%"
+        rightEyeScaleReadOutLabel.text = "0%"
     }
 }

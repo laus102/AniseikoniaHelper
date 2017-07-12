@@ -88,8 +88,8 @@ class HorizontalTestViewController: UIViewController {
         bottomScaleReadOutLabel.text = (roundedScaleValue >= 0.0) ? "-\( Int((abs(percentage - 1.0)/percentage)*100.0) )%" : "+\( Int((abs(percentage - 1.0)/1.0)*100.0) )%"
         
         if (roundedScaleValue == 0.0) {
-            topScaleReadOutLabel.text = "100%"
-            bottomScaleReadOutLabel.text = "100%"
+            topScaleReadOutLabel.text = "0%"
+            bottomScaleReadOutLabel.text = "0%"
         }
     }
     
@@ -97,10 +97,10 @@ class HorizontalTestViewController: UIViewController {
         scaleAdjustSlider.value = 0.0
 
         topDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.top)
-        topScaleReadOutLabel.text = "100%"
+        topScaleReadOutLabel.text = "0%"
 
         bottomDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.bottom)
-        bottomScaleReadOutLabel.text = "100%"
+        bottomScaleReadOutLabel.text = "0%"
     }
     
 }
