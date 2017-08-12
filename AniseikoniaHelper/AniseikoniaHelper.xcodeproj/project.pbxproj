@@ -147,7 +147,7 @@
 					C6CD39D71E2EC80E004BC44B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = LF3T92TNXL;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -320,12 +320,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brendan Lau (JGMGZA73UQ)";
 				DEVELOPMENT_TEAM = LF3T92TNXL;
 				INFOPLIST_FILE = "$(SRCROOT)/AniseikoniaHelper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laus102.AniseikoniaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d1b8f967-da90-4b84-a6a0-379bda991ef3";
+				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDevelopment;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -335,11 +337,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brendan Lau (LF3T92TNXL)";
 				DEVELOPMENT_TEAM = LF3T92TNXL;
 				INFOPLIST_FILE = "$(SRCROOT)/AniseikoniaHelper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laus102.AniseikoniaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0478d4b5-2390-45ff-82c0-09a922d52a86";
+				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDistribution;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
