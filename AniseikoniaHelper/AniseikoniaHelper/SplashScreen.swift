@@ -23,7 +23,7 @@ class SplashScreen: UIView {
     
     func didLoad() {
     
-        let temp = NSMutableAttributedString(string: "Welcome to iEye")
+        let temp = NSMutableAttributedString(string: "Welcome to AniseikoniaHelper")
         temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.uiRed, range: NSMakeRange(11, 4))
         
         _titleLabel.attributedText = temp

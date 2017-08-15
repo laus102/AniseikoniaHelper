@@ -36,8 +36,8 @@ class HorizontalTestViewController: UIViewController {
 
         bottomDiagramComponentView.backgroundColor = UIColor.clear
         topDiagramComponentView.backgroundColor = UIColor.clear
-        bottomDiagramComponentView.fillColor = UIColor.iEyeRed
-        topDiagramComponentView.fillColor = UIColor.iEyeGreen
+        bottomDiagramComponentView.fillColor = UIColor.AHRed
+        topDiagramComponentView.fillColor = UIColor.AHGreen
 
         bottomDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
         topDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.5, y: 1.0)
@@ -53,7 +53,7 @@ class HorizontalTestViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetSlider))
         scaleAdjustSlider.addGestureRecognizer(gestureRecognizer)
                 
-        verticalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
+        verticalTestButton.layer.borderColor = UIColor.AHLightGray.cgColor
         verticalTestButton.layer.borderWidth = 1.5
         verticalTestButton.contentEdgeInsets.top = 15.0
         verticalTestButton.contentEdgeInsets.bottom = 15.0

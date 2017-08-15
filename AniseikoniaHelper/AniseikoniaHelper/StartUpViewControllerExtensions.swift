@@ -1,6 +1,6 @@
 //
 //  StartUpViewControllerExtensions.swift
-//  iEye
+//  AniseikoniaHelper
 //
 //  Created by Brendan Lau on 1/19/17.
 //  Copyright © 2017 Incipia. All rights reserved.

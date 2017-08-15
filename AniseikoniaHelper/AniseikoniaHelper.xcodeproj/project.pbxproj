@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C653CD61F3E8321003F9185 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C653CD51F3E8321003F9185 /* AppDelegate.swift */; };
-		0C653CD81F3E832F003F9185 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C653CD71F3E832F003F9185 /* Assets.xcassets */; };
 		0C653CDD1F3E836C003F9185 /* HorizontalTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C653CDB1F3E836C003F9185 /* HorizontalTestViewController.swift */; };
 		0C653CDE1F3E836C003F9185 /* VerticalTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C653CDC1F3E836C003F9185 /* VerticalTestViewController.swift */; };
 		0C653CE01F3E837C003F9185 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C653CDF1F3E837C003F9185 /* Router.swift */; };
@@ -20,12 +19,12 @@
 		0C653CEC1F3E83B2003F9185 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C653CEB1F3E83B2003F9185 /* TransitionAnimator.swift */; };
 		0C653CF11F3E83EB003F9185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C653CED1F3E83EB003F9185 /* LaunchScreen.storyboard */; };
 		0C653CF21F3E83EB003F9185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C653CEF1F3E83EB003F9185 /* Main.storyboard */; };
-		0C653CF41F3E8406003F9185 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C653CF31F3E8406003F9185 /* Info.plist */; };
+		0C73359A1F3E968E00D776A2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C7335991F3E968E00D776A2 /* Info.plist */; };
+		0C73359C1F3E969D00D776A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C73359B1F3E969D00D776A2 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C653CD51F3E8321003F9185 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AniseikoniaHelper/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		0C653CD71F3E832F003F9185 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AniseikoniaHelper/Assets.xcassets; sourceTree = "<group>"; };
 		0C653CDB1F3E836C003F9185 /* HorizontalTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalTestViewController.swift; path = AniseikoniaHelper/HorizontalTestViewController.swift; sourceTree = SOURCE_ROOT; };
 		0C653CDC1F3E836C003F9185 /* VerticalTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerticalTestViewController.swift; path = AniseikoniaHelper/VerticalTestViewController.swift; sourceTree = SOURCE_ROOT; };
 		0C653CDF1F3E837C003F9185 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Router.swift; path = AniseikoniaHelper/Router.swift; sourceTree = SOURCE_ROOT; };
@@ -37,7 +36,8 @@
 		0C653CEB1F3E83B2003F9185 /* TransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionAnimator.swift; path = AniseikoniaHelper/TransitionAnimator.swift; sourceTree = SOURCE_ROOT; };
 		0C653CEE1F3E83EB003F9185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AniseikoniaHelper/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C653CF01F3E83EB003F9185 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = AniseikoniaHelper/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0C653CF31F3E8406003F9185 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AniseikoniaHelper/Info.plist; sourceTree = "<group>"; };
+		0C7335991F3E968E00D776A2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AniseikoniaHelper/Info.plist; sourceTree = "<group>"; };
+		0C73359B1F3E969D00D776A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AniseikoniaHelper/Assets.xcassets; sourceTree = "<group>"; };
 		C6CD39D81E2EC80E004BC44B /* AniseikoniaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniseikoniaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -88,8 +88,8 @@
 				C6CD39D91E2EC80E004BC44B /* Products */,
 				0C653CED1F3E83EB003F9185 /* LaunchScreen.storyboard */,
 				0C653CEF1F3E83EB003F9185 /* Main.storyboard */,
-				0C653CD71F3E832F003F9185 /* Assets.xcassets */,
-				0C653CF31F3E8406003F9185 /* Info.plist */,
+				0C73359B1F3E969D00D776A2 /* Assets.xcassets */,
+				0C7335991F3E968E00D776A2 /* Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,10 +174,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C653CF41F3E8406003F9185 /* Info.plist in Resources */,
 				0C653CF11F3E83EB003F9185 /* LaunchScreen.storyboard in Resources */,
-				0C653CD81F3E832F003F9185 /* Assets.xcassets in Resources */,
 				0C653CF21F3E83EB003F9185 /* Main.storyboard in Resources */,
+				0C73359C1F3E969D00D776A2 /* Assets.xcassets in Resources */,
+				0C73359A1F3E968E00D776A2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

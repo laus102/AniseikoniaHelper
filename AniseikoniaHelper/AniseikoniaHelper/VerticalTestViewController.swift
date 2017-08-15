@@ -51,16 +51,16 @@ class VerticalTestViewController: UIViewController {
 
         leftDiagramComponentView.backgroundColor = UIColor.clear
         rightDiagramComponentView.backgroundColor = UIColor.clear
-        leftDiagramComponentView.fillColor = UIColor.iEyeRed
-        rightDiagramComponentView.fillColor = UIColor.iEyeGreen
+        leftDiagramComponentView.fillColor = UIColor.AHRed
+        rightDiagramComponentView.fillColor = UIColor.AHGreen
         
         leftDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         rightDiagramComponentView.layer.anchorPoint = CGPoint(x: 0.0, y: 0.5)
         
         leftDiagramComponentView.transform = CGAffineTransform(scaleX: -1, y: 1) // reflect the left diagram across the Y-axis
         
-        rightEyeScaleReadOutLabel.layer.borderColor = UIColor.iEyeLightGray.cgColor
-        leftEyeScaleReadOutLabel.layer.borderColor = UIColor.iEyeLightGray.cgColor
+        rightEyeScaleReadOutLabel.layer.borderColor = UIColor.AHLightGray.cgColor
+        leftEyeScaleReadOutLabel.layer.borderColor = UIColor.AHLightGray.cgColor
         rightEyeScaleReadOutLabel.layer.borderWidth = 1.5
         leftEyeScaleReadOutLabel.layer.borderWidth = 1.5
 
@@ -68,7 +68,7 @@ class VerticalTestViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(resetSlider))
         scaleAdjustSlider.addGestureRecognizer(gestureRecognizer)
         
-        toHorizontalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
+        toHorizontalTestButton.layer.borderColor = UIColor.AHLightGray.cgColor
         toHorizontalTestButton.layer.borderWidth = 1.5
         toHorizontalTestButton.contentEdgeInsets.top = 15.0
         toHorizontalTestButton.contentEdgeInsets.bottom = 15.0

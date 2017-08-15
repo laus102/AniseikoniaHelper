@@ -15,7 +15,7 @@
         <!--Vertical Test View Controller-->
         <scene sceneID="XHI-ND-sjY">
             <objects>
-                <viewController storyboardIdentifier="VerticalTestViewController" id="1bA-WM-zfr" customClass="VerticalTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VerticalTestViewController" id="1bA-WM-zfr" customClass="VerticalTestViewController" customModule="AniseikoniaHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YIX-tY-Lon"/>
                         <viewControllerLayoutGuide type="bottom" id="bfk-fj-wcJ"/>
@@ -24,13 +24,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-B5-Jz5" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHU-B5-Jz5" customClass="PillLabel" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="1132.5" y="200" width="48" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-UO-mOv" customClass="PillButton" customModule="iEye" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-UO-mOv" customClass="PillButton" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="100" y="90" width="127" height="30"/>
                                 <state key="normal" title="Switch Orientation">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -46,14 +46,14 @@
                                     <action selector="scaleAdjustSliderValueChanged:" destination="1bA-WM-zfr" eventType="valueChanged" id="KqW-NS-zEv"/>
                                 </connections>
                             </slider>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOR-f8-I9D" customClass="DiagramComponentView" customModule="iEye" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOR-f8-I9D" customClass="DiagramComponentView" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="619" y="170.5" width="128" height="683"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.42352941179999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="O3i-gO-o1L"/>
                                 </constraints>
                             </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-d3-zRw" customClass="DiagramComponentView" customModule="iEye" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jJ4-d3-zRw" customClass="DiagramComponentView" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="619" y="170.5" width="128" height="683"/>
                                 <color key="backgroundColor" red="0.55589313271604934" green="1" blue="0.51369598765432101" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -66,7 +66,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-MP-180" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-MP-180" customClass="PillLabel" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="1253" y="200" width="48" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
@@ -153,7 +153,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iEye" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4K-mW-L45">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to AniseikoniaHelper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4K-mW-L45">
                             <rect key="frame" x="20" y="300" width="1326" height="84"/>
                             <fontDescription key="fontDescription" type="system" pointSize="70"/>
                             <nil key="textColor"/>
@@ -182,7 +182,7 @@
         <!--Horizontal Test View Controller-->
         <scene sceneID="FiZ-pk-CKA">
             <objects>
-                <viewController storyboardIdentifier="HorizontalTestViewController" id="kZZ-Iw-6sX" customClass="HorizontalTestViewController" customModule="iEye" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HorizontalTestViewController" id="kZZ-Iw-6sX" customClass="HorizontalTestViewController" customModule="AniseikoniaHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x5d-H4-qni"/>
                         <viewControllerLayoutGuide type="bottom" id="XtI-WG-Qhy"/>
@@ -198,7 +198,7 @@
                                     <action selector="scaleAdjustmentSliderValueChanged:" destination="kZZ-Iw-6sX" eventType="valueChanged" id="wek-cO-71W"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-DM-2JO" customClass="PillButton" customModule="iEye" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-DM-2JO" customClass="PillButton" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="100" y="90" width="127" height="30"/>
                                 <state key="normal" title="Switch Orientation">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -207,27 +207,27 @@
                                     <action selector="toVerticalTestButtonPressed:" destination="kZZ-Iw-6sX" eventType="touchUpInside" id="KVh-Lc-NEj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8s-TL-cQc" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8s-TL-cQc" customClass="PillLabel" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="1132" y="120" width="48" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-sF-Fwy" customClass="DiagramComponentView" customModule="iEye" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-sF-Fwy" customClass="DiagramComponentView" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="341.5" y="448" width="683" height="128"/>
                                 <color key="backgroundColor" red="0.52549019610000003" green="0.76862745099999996" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Z8a-Lg-cx4"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gm9-UH-jgM" customClass="DiagramComponentView" customModule="iEye" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gm9-UH-jgM" customClass="DiagramComponentView" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="341.5" y="448" width="683" height="128"/>
                                 <color key="backgroundColor" red="1" green="0.5556520061728395" blue="0.40768314267407407" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="hBb-Qa-dHk"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXz-U7-dvN" customClass="PillLabel" customModule="iEye" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXz-U7-dvN" customClass="PillLabel" customModule="AniseikoniaHelper" customModuleProvider="target">
                                 <rect key="frame" x="1248" y="120" width="48" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>

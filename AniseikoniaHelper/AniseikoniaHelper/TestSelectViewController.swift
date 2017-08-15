@@ -1,6 +1,6 @@
 ////
 ////  TestSelectViewController.swift
-////  iEye
+////  AniseikoniaHelper
 ////
 ////  Created by Brendan Lau on 1/18/17.
 ////  Copyright © 2017 Incipia. All rights reserved.
@@ -40,9 +40,9 @@
 //        }
 //        
 //        // Test Select VC
-//        verticalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
+//        verticalTestButton.layer.borderColor = UIColor.AHLightGray.cgColor
 //        verticalTestButton.layer.borderWidth = 1.0
-//        horizontalTestButton.layer.borderColor = UIColor.iEyeLightGray.cgColor
+//        horizontalTestButton.layer.borderColor = UIColor.AHLightGray.cgColor
 //        horizontalTestButton.layer.borderWidth = 1.0
 //    }
 //    

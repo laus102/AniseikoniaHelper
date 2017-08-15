@@ -1,6 +1,6 @@
 //
 //  StartUpViewController.swift
-//  iEye
+//  AniseikoniaHelper
 //
 //  Created by Brendan Lau on 1/17/17.
 //  Copyright © 2017 Incipia. All rights reserved.
@@ -20,7 +20,7 @@ class StartUpViewController: UIViewController {
         
         transitioningDelegate = self
         
-        let temp = NSMutableAttributedString(string: "Welcome to iEye")
+        let temp = NSMutableAttributedString(string: "Welcome to AniseikoniaHelper")
         temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(11, 4))
         
         _titleLabel.attributedText = temp
