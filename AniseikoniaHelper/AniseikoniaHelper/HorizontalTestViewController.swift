@@ -93,7 +93,7 @@ class HorizontalTestViewController: UIViewController {
         }
     }
     
-    func resetSlider() {
+    @objc func resetSlider() {
         scaleAdjustSlider.value = 0.0
 
         topDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.top)

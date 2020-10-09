@@ -41,8 +41,8 @@ class VerticalTestViewController: UIViewController {
 
         // Splash Page View
         let temp = NSMutableAttributedString(string: "Welcome to Aniseikonia Helper")
-        temp.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSMakeRange(11, 18))
-        temp.addAttributes([ NSFontAttributeName: UIFont.systemFont(ofSize: 70) ], range: NSMakeRange(0, temp.mutableString.length))
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 18))
+        temp.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 70), range: NSMakeRange(0, temp.length))
 
         splashTitleLabel.attributedText = temp
         splashView.center = view.center
@@ -128,7 +128,7 @@ class VerticalTestViewController: UIViewController {
         }
     }
     
-    func resetSlider() {
+    @objc func resetSlider() {
         scaleAdjustSlider.value = 0.0
 
         leftDiagramComponentView.adjust(scale: 1.0, diagramOrientation: DiagramDirection.left)
