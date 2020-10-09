@@ -327,7 +327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.laus102.AniseikoniaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d1b8f967-da90-4b84-a6a0-379bda991ef3";
-				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDevelopment;
+				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDev;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -344,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.laus102.AniseikoniaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "0478d4b5-2390-45ff-82c0-09a922d52a86";
-				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDistribution;
+				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDist;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
