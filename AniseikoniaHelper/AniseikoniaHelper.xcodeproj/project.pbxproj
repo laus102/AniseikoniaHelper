@@ -146,14 +146,14 @@
 					C6CD39D71E2EC80E004BC44B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = LF3T92TNXL;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1140;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
 			buildConfigurationList = C6CD39D31E2EC80E004BC44B /* Build configuration list for PBXProject "AniseikoniaHelper" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -346,7 +346,7 @@
 				PROVISIONING_PROFILE = "d1b8f967-da90-4b84-a6a0-379bda991ef3";
 				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDev;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -364,7 +364,7 @@
 				PROVISIONING_PROFILE = "0478d4b5-2390-45ff-82c0-09a922d52a86";
 				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDist;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
