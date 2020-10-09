@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:AniseikoniaHelper/AniseikoniaHelper.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:AniseikoniaHelper/AniseikoniaHelper"
+      name = "AniseikoniaHelper">
+      <FileRef
+         location = "group:AppDelegate.swift">
+      </FileRef>
+      <Group
+         location = "group:Assets.xcassets"
+         name = "Assets.xcassets">
+         <Group
+            location = "group:AppIcon.appiconset"
+            name = "AppIcon.appiconset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:iEye_152.png">
+            </FileRef>
+            <FileRef
+               location = "group:iEye_80.png">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <Group
+            location = "group:hor_scale=1.0.imageset"
+            name = "hor_scale=1.0.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:hor_scale=1.0.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:scale=1.0.imageset"
+            name = "scale=1.0.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:scale=1.0.png">
+            </FileRef>
+         </Group>
+      </Group>
+      <Group
+         location = "group:Base.lproj"
+         name = "Base.lproj">
+         <FileRef
+            location = "group:LaunchScreen.storyboard">
+         </FileRef>
+         <FileRef
+            location = "group:Main.storyboard">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:CircleButton.swift">
+      </FileRef>
+      <FileRef
+         location = "group:DiagramComponentView.swift">
+      </FileRef>
+      <FileRef
+         location = "group:HorizontalTestViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:PillButton.swift">
+      </FileRef>
+      <FileRef
+         location = "group:PillLabel.swift">
+      </FileRef>
+      <FileRef
+         location = "group:Router.swift">
+      </FileRef>
+      <FileRef
+         location = "group:SplashScreen.swift">
+      </FileRef>
+      <FileRef
+         location = "group:StartUpViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:StartUpViewControllerExtensions.swift">
+      </FileRef>
+      <FileRef
+         location = "group:TestSelectViewController.swift">
+      </FileRef>
+      <FileRef
+         location = "group:TransitionAnimator.swift">
+      </FileRef>
+      <FileRef
+         location = "group:UIExtensions.swift">
+      </FileRef>
+      <FileRef
+         location = "group:VerticalTestViewController.swift">
+      </FileRef>
+   </Group>
+</Workspace>
