@@ -6,6 +6,7 @@
 //  Copyright © 2017 Brendan Lau. All rights reserved.
 //
 
+import SafariServices
 import UIKit
 
 protocol HorizontalTestViewControllerDelegate: class {
@@ -31,8 +32,29 @@ class HorizontalTestViewController: UIViewController {
 
     weak var delegate: HorizontalTestViewControllerDelegate!
 
+    lazy var learnMoreButton: PillButton = {
+        let button = PillButton()
+        button.layer.borderColor = UIColor.AHLightGray.cgColor
+        button.layer.borderWidth = 1.5
+        button.contentEdgeInsets.top = 15.0
+        button.contentEdgeInsets.bottom = 15.0
+        button.contentEdgeInsets.left = 15.0
+        button.contentEdgeInsets.right = 15.0
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(learnMoreButtonPressed), for: .touchUpInside)
+        button.setTitle("Learn More", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.addSubview(learnMoreButton)
+        NSLayoutConstraint.activate([
+            learnMoreButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
+            learnMoreButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -70),
+        ])
 
         bottomDiagramComponentView.backgroundColor = UIColor.clear
         topDiagramComponentView.backgroundColor = UIColor.clear
@@ -103,4 +125,10 @@ class HorizontalTestViewController: UIViewController {
         bottomScaleReadOutLabel.text = "0%"
     }
     
+    @objc func learnMoreButtonPressed() {
+        if let url = URL(string: "https://www.drdrbill.com/downloads/optics/refraction/Aniseikonia.pdf") {
+            let vc = SFSafariViewController(url: url)
+            present(vc, animated: true, completion: nil)
+        }
+    }
 }
