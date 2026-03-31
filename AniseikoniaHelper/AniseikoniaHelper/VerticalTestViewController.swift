@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-protocol VerticalTestViewControllerDelegate: class {
+protocol VerticalTestViewControllerDelegate: AnyObject {
     func toHorizontalButtonPressed(inVerticalVC sender: VerticalTestViewController)
 }
 
@@ -63,8 +63,9 @@ class VerticalTestViewController: UIViewController {
 
         // Splash Page View
         let temp = NSMutableAttributedString(string: "Welcome to Aniseikonia Helper")
-        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 18))
         temp.addAttribute(NSAttributedString.Key.font, value: UIFont.systemFont(ofSize: 70), range: NSMakeRange(0, temp.length))
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.black, range: NSMakeRange(0, 11))
+        temp.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(11, 18))
 
         splashTitleLabel.attributedText = temp
         splashView.center = view.center
@@ -161,7 +162,7 @@ class VerticalTestViewController: UIViewController {
     }
 
     @objc func learnMoreButtonPressed() {
-        if let url = URL(string: "https://www.drdrbill.com/downloads/optics/refraction/Aniseikonia.pdf") {
+        if let url = URL(string: "https://en.wikipedia.org/wiki/Aniseikonia") {
             let vc = SFSafariViewController(url: url)
             present(vc, animated: true, completion: nil)
         }
