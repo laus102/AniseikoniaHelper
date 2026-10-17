@@ -9,7 +9,7 @@
 import SafariServices
 import UIKit
 
-protocol HorizontalTestViewControllerDelegate: class {
+protocol HorizontalTestViewControllerDelegate: AnyObject {
     func toVerticalButtonPressed(inHorizontalVC sender: HorizontalTestViewController)
 }
 
@@ -126,7 +126,7 @@ class HorizontalTestViewController: UIViewController {
     }
     
     @objc func learnMoreButtonPressed() {
-        if let url = URL(string: "https://www.drdrbill.com/downloads/optics/refraction/Aniseikonia.pdf") {
+        if let url = URL(string: "https://en.wikipedia.org/wiki/Aniseikonia") {
             let vc = SFSafariViewController(url: url)
             present(vc, animated: true, completion: nil)
         }

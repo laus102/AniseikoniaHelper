@@ -20,6 +20,7 @@
 		0C653CF11F3E83EB003F9185 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C653CED1F3E83EB003F9185 /* LaunchScreen.storyboard */; };
 		0C653CF21F3E83EB003F9185 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C653CEF1F3E83EB003F9185 /* Main.storyboard */; };
 		0C73359C1F3E969D00D776A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C73359B1F3E969D00D776A2 /* Assets.xcassets */; };
+		AA00000000000001 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AA00000000000002 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0C7335991F3E968E00D776A2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AniseikoniaHelper/Info.plist; sourceTree = "<group>"; };
 		0C73359B1F3E969D00D776A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AniseikoniaHelper/Assets.xcassets; sourceTree = "<group>"; };
 		C6CD39D81E2EC80E004BC44B /* AniseikoniaHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniseikoniaHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA00000000000002 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = AniseikoniaHelper/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				0C653CEF1F3E83EB003F9185 /* Main.storyboard */,
 				0C73359B1F3E969D00D776A2 /* Assets.xcassets */,
 				0C7335991F3E968E00D776A2 /* Info.plist */,
+				AA00000000000002 /* PrivacyInfo.xcprivacy */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,7 +150,7 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = LF3T92TNXL;
 						LastSwiftMigration = 1140;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -177,6 +180,7 @@
 				0C653CF11F3E83EB003F9185 /* LaunchScreen.storyboard in Resources */,
 				0C653CF21F3E83EB003F9185 /* Main.storyboard in Resources */,
 				0C73359C1F3E969D00D776A2 /* Assets.xcassets in Resources */,
+				AA00000000000001 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,13 +274,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -323,11 +327,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -337,14 +341,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Brendan Lau (JGMGZA73UQ)";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LF3T92TNXL;
 				INFOPLIST_FILE = "$(SRCROOT)/AniseikoniaHelper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laus102.AniseikoniaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d1b8f967-da90-4b84-a6a0-379bda991ef3";
-				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDev;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -354,15 +356,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brendan Lau (LF3T92TNXL)";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LF3T92TNXL;
 				INFOPLIST_FILE = "$(SRCROOT)/AniseikoniaHelper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.laus102.AniseikoniaHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0478d4b5-2390-45ff-82c0-09a922d52a86";
-				PROVISIONING_PROFILE_SPECIFIER = AniseikoniaHelperDist;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};

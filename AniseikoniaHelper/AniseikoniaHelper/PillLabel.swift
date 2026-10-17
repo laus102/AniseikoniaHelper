@@ -12,6 +12,7 @@ class PillLabel: UILabel {
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        textColor = .black
         let radius = min(bounds.width, bounds.height) * 0.2
         layer.cornerRadius = radius
     }
